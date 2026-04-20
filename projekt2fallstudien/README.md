@@ -1,7 +1,7 @@
 # Projekt 2: 
 
 ## Termine
-- Zwischenpräsentation: Do. 18/05 14:15
+- Zwischenpräsentation: Mo. 18/05 14:15
 - Bericht: Mi. 20/05 23:59
 
 ---
