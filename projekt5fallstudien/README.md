@@ -1,7 +1,7 @@
 # Projekt 5:
 ## Termine
-- Präsentation (benotet): 09/06 10:15
-- Bericht: 15/07 23:59
+- Präsentation (benotet): Do. 09/06 10:15
+- Bericht: Mi. 15/07 23:59
 
 ---
 
