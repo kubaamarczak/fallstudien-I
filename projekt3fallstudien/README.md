@@ -1,6 +1,7 @@
 # Projekt 3:
 
 ## Termine
+#### 21/05 - 10/06
 - Präsentation (benotet): Mo. 08/06 14:15
 - Bericht: Mi. 10/06 23:59
 
