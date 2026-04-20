@@ -766,7 +766,6 @@ ggplot(df2, aes(x = Abitur_Quote, y = Erwerbslos_Quote, color = Region)) +
                      labels = c("Westdeutschland", "Ostdeutschland")) +
   theme_minimal()
 
-
 ## 8. Vergleich Ost- und Westdeutschland
 
 ## Vergleich anhand deskriptiver Maßzahlen
