@@ -1,8 +1,8 @@
 # Projekt 3:
 
 ## Termine
-- Präsentation (benotet): 08/06 14:15
-- Bericht: 10/06 23:59
+- Präsentation (benotet): Do. 08/06 14:15
+- Bericht: Mi. 10/06 23:59
 
 ---
 
