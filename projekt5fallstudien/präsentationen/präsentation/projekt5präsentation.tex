@@ -1,0 +1,210 @@
+\documentclass[10pt, aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman,shorthands=off]{babel}
+\usepackage{graphicx}
+\usepackage[absolute,overlay]{textpos}
+\usetheme{Madrid}
+\usecolortheme{seahorse} 
+\setbeamertemplate{navigation symbols}{}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{/Users/jakubmarczak/Downloads/literatur.bib}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{wasysym}
+\usepackage{xcolor}
+\usepackage{tikz}
+\definecolor{progress}{HTML}{9b9bba}
+
+\title{Projekt \MakeUppercase{\romannumeral 5}  Präsentation}
+\author[J. Marczak, G. Kathiravan, M. I. Rahman]{Jakub Marczak, Ganeisraaj Kathiravan, Muhammad Ibrahim Rahman}
+
+\setbeamertemplate{footline}{
+  \leavevmode
+  
+  % Infoleiste
+  \hbox{
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}
+      \hspace{1em}\insertshortauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.5ex,dp=1ex,center]{title in head/foot}
+      \insertshorttitle
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.5ex,dp=1ex,right]{date in head/foot}
+      \insertframenumber{} / \inserttotalframenumber \hspace{1em}
+    \end{beamercolorbox}
+  }
+
+  % Progressbar
+  \hbox{
+    \begin{beamercolorbox}[wd=\paperwidth,ht=1.3ex,dp=0ex,left]{}
+      \tikz{
+        \fill[gray!15] (0,0) rectangle (\paperwidth,1.3ex);
+        \fill[progress] (0,0) rectangle
+        ({\paperwidth*\insertframenumber/\inserttotalframenumber},1.3ex);
+      }
+    \end{beamercolorbox}
+  }
+}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+% Folie 2
+\begin{frame}
+    \frametitle{Inhalt}
+    \begin{enumerate}
+        \item Population verstehen
+        \item Nierenfunktion unter Vancomycin-Therapie
+        \begin{itemize} 
+        \item[$\rightarrow$] Verhalten von SCr- und eGFR-Werten
+        \item[$\rightarrow$] Auswirkung vom Vancomycin-Spiegel auf Nierenmarker
+        \item[$\rightarrow$] Zusammenhang zwischen Vancomycin-Spiegel und Nierenfunktion
+        \item[$\rightarrow$] Einfluss der Nierenfunktion auf Gesundheits-Marker
+      \end{itemize}
+        \item Mortalitätsanalyse
+        \item[$\rightarrow$] Welche Einflüsse begleiten die Mortalität am meisten?
+        \begin{itemize}
+            \item Nierenfunktion
+            \item Schweregrades der Erkrankung
+            \item Komorbiditäten
+            \item Nephrotoxine
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+% Folie 3 
+\begin{frame}
+    \frametitle{Population verstehen}
+%    \begin{figure}
+%        \centering
+%        \includegraphics[width=1\linewidth]{population.pdf}
+%        \vspace{-0.75cm}
+%        \caption{Kerndichteschätzungen mit Gaußkern für Alter, Größe und Gewicht.}
+%    \end{figure}
+\end{frame}
+
+% Folie 4 
+\begin{frame}
+    \frametitle{Verhalten von SCr- und eGFR-Werten}
+%    \begin{figure}
+%        \centering
+%        \vspace{-0.2cm}
+%        \includegraphics[width=0.6\linewidth]{corrplot nierenmarker.pdf}
+%        \vspace{-0.4cm}
+%        \caption{Korrelationsplot zwischen SCr- und eGFR-Werten als Nierenmarker.}
+%    \end{figure}
+\end{frame}
+
+% Folie 5 
+\begin{frame}
+    \frametitle{Auswirkung vom Vancomycin-Spiegel auf Nierenmarker}
+%    \begin{figure}
+%        \centering
+%        \includegraphics[width=1.02\linewidth]{ZhSCreGFR.pdf}
+%        \vspace{-0.4cm}
+%        \caption{Hexbin-Plots von $\Delta$SCr und $\Delta$eGFR gegen die mittlere Vancomycin-Konzentration ($\bar{C}$) mit \textit{LOESS}-Trendlinie.}
+%    \end{figure}
+\end{frame}
+
+% Folie 6 
+\begin{frame}
+    \frametitle{Auswirkung vom Vancomycin-Spiegel auf Nierenmarker}
+%    \begin{figure}
+%        \centering
+%        \includegraphics[width=1.02\linewidth]{HexScat.pdf}
+%         \vspace{-0.4cm}
+%        \caption{Vergleich der Darstellung desselben Datensatzes als Scatterplot und Hexbin-Plot.}
+%    \end{figure}
+\end{frame}
+
+% Folie 7 
+\begin{frame}
+	\frametitle{Zusammenhang zwischen Vancomycin-Spiegel und Nierenfunktion}
+%	\begin{figure}
+%		\centering
+%		\hspace*{1.5cm}
+%		\includegraphics[width=0.7\linewidth]{C24xeGFRStart.pdf}
+%		\vspace{-0.45cm} 
+%		\caption{Zusammenhang zwischen Vancomycin-Serum-Spiegel nach 24h ($C_{24}$) und der geschätzten glomerulären Filtrationsrate zu Beginn der Therapie($eGFR_{Start}$) (GAM-Trend).}
+%	\end{figure}
+\end{frame}
+
+% Folie 8 
+\begin{frame}
+	\frametitle{Einfluss der Nierenfunktion auf Gesundheits-Marker}
+%	\begin{figure}
+%		\centering
+%		\includegraphics[width=0.82\linewidth]{SAPSSOFAeGFR.pdf}
+%		\vspace{-0.4cm}
+%		\caption{Korrelation von $eGFR_{Start}$ zum SAPS- und SOFA-Score mit LOESS-Trendlinie und 95 \% Konfidenzintervall.}
+%	\end{figure}
+\end{frame}
+
+% Folie 9 
+\begin{frame}
+	\frametitle{Nierenfunktion in Verbindung mit Mortalität }
+%	\begin{figure}
+%		\centering
+%		\includegraphics[width=0.88\linewidth]{eGFRxMort.pdf}
+%		\vspace{-0.55cm}
+%		\caption{Verteilung von $eGFR_{Start}$ nach Mortalitätsstatus.}
+%	\end{figure}
+\end{frame}
+
+% Folie 10 
+\begin{frame}
+    \frametitle{Einfluss des Schweregrades der Erkrankung auf die Mortalität}
+%    \begin{figure}
+%        \centering
+%        \includegraphics[width=0.65\linewidth]{SchwerxMort.pdf}
+%         \vspace{-0.2cm}
+%        \caption{Boxplots der Schweregradvariablen zu Therapiebeginn (erste 24h), gruppiert nach Mortalitätsstatus (lebt vs. gestorben).}
+%    \end{figure}
+\end{frame}
+
+% Folie 11
+\begin{frame}
+    \frametitle{Welche Komorbiditäten begleiten die Mortalität am meisten?}
+%    \begin{figure}
+%        \centering
+%        \includegraphics[width=1\linewidth]{KomorxMort.pdf}
+%        \caption{Barplot Anzahl von Patienten und Mortalitätsrate abhängig von Komorbiditäten.}
+%    \end{figure}
+\end{frame}
+
+% Folie 12
+\begin{frame}
+    \frametitle{Welche Nephrotoxine begleiten die Mortalität am meisten?}
+%    \begin{figure}
+%        \centering
+%        \includegraphics[width=1\linewidth]{NephroxMort.pdf}
+%        \caption{Barplot Anzahl von Patienten und Mortalitätsrate abhängig von Nephrotoxinen.}
+%    \end{figure}
+\end{frame}
+
+% Folie 13 
+\begin{frame}
+    \frametitle{Therapiedauer nach Mortalitätsstatus}
+%    \begin{figure}
+%        \centering
+%        \includegraphics[width=0.7\linewidth]{therapiedauer_mortalitaet.png}
+%        \caption{Dauer der Vancomycin-Therapie nach Mortalitätsstatus.}
+%    \end{figure}
+\end{frame}
+
+% Folie 14
+\begin{frame}
+    \frametitle{Mortalitätsrate nach C24-Quartilen}
+%    \begin{figure}
+%        \centering
+%        \includegraphics[width=0.9\linewidth]{ Rplot.png}
+%        \caption{Mortalitätsrate nach Quartilen des Vancomycin-Serumspiegels (C24).}
+%    \end{figure}
+\end{frame}
+
+\end{document}

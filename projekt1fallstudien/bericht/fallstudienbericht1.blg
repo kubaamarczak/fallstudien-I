@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: fallstudienbericht1.aux
+The style file: apalike-german.bst
+Database file #1: Referenzen.bib
+You've used 12 entries,
+            1932 wiz_defined-function locations,
+            543 strings with 5920 characters,
+and the built_in function-call counts, 4422 in all, are:
+= -- 410
+> -- 243
+< -- 5
++ -- 84
+- -- 84
+* -- 381
+:= -- 818
+add.period$ -- 37
+call.type$ -- 12
+change.case$ -- 90
+chr.to.int$ -- 12
+cite$ -- 12
+duplicate$ -- 157
+empty$ -- 268
+format.name$ -- 100
+if$ -- 819
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 5
+newline$ -- 64
+num.names$ -- 36
+pop$ -- 91
+preamble$ -- 1
+purify$ -- 90
+quote$ -- 0
+skip$ -- 121
+stack$ -- 0
+substring$ -- 212
+swap$ -- 18
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 70
+warning$ -- 0
+while$ -- 29
+width$ -- 0
+write$ -- 152

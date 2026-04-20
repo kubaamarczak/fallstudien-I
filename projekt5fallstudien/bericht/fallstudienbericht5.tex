@@ -1,0 +1,497 @@
+\documentclass[a4paper,12pt]{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[ngerman]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[left=3.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+%-------------------------------------------------------------------------%
+% Hilfreiche Pakete
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[square]{natbib}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} 
+
+\lstset{
+  inputencoding=utf8,
+  extendedchars=true,
+  literate=
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+    {ü}{{\"u}}1
+    {Ä}{{\"A}}1
+    {Ö}{{\"O}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+}
+
+
+%-------------------------------------------------------------------------%
+% Weitere Einstellungen
+\setlength{\parindent}{0em}     % Einruecken eines neuen Absatzes vermeiden
+
+
+% Einstellungen fuer listings
+\lstdefinestyle{mystyle}
+{
+    language = R,
+    basicstyle = {\ttfamily},
+    frame = tb,
+    commentstyle=\itshape,
+    breaklines=true,
+    breakatwhitespace=true,
+}
+
+%-------------------------------------------------------------------------%
+% Dokumentbeginn
+\begin{document}
+
+
+%-------------------------------------------------------------------------%
+% Titelseite
+\begin{titlepage}
+	\centering
+	\par\vspace{2cm}
+	{\scshape\LARGE Technische Universität Dortmund \\ Fakultät Statistik \par}
+	\vspace{2cm}
+	\vfill
+	{\scshape\Large Fallstudien \MakeUppercase{\romannumeral 1}  \\ Bericht \MakeUppercase{\romannumeral 5} \par}
+	\vspace{2cm}
+	{\huge\bfseries Vancomycin-Exposition und Veränderung der Nierenfunktion: Eine explorative Analyse von SCr und eGFR\par}
+	\vspace{2cm}
+	{\Large Jakub Marczak \par}
+	\vfill
+	Dozenten\par
+	Prof. Dr. Katja Ickstadt\par
+	JProf. Dr. Nils Weitzel\par
+	Dr. Zeyu Ding
+    \vfill
+% Bottom of the page
+	{\large 29.04.2026\par}
+\end{titlepage}
+
+
+%-------------------------------------------------------------------------%
+% Inhaltsverzeichnis
+\newpage
+\tableofcontents
+\thispagestyle{empty}
+
+
+%-------------------------------------------------------------------------%
+% Einleitung
+\newpage
+\setcounter{page}{1}
+\section{Einleitung}
+Akutes Nierenversagen (AKI) stellt eine bekannte Nebenwirkung von Vancomycin dar. Der Literatur zufolge bewegen sich Inzidenzraten von Vancomycin-induziertem AKI zwischen 5\% und 43\%. Angesichts des Einflusses auf klinische Outcomes wie Aufenthaltsdauer im Krankenhaus und Mortalität erweist sich eine Minimierung der AKI-Häufigkeit als besonders relevant \citep{kim2022risk}. 
+
+Vor diesem Hintergrund untersucht der vorliegende Bericht den Zusammenhang zwischen Vancomycin-Exposition und Veränderungen der Nierenfunktion. Zunächst wird die \textit{Problemstellung} (\ref{sec:Problem}) erläutert, indem Zielsetzung (\ref{sec:Ziel}) sowie der Datensatz (\ref{sec:Daten}) definiert werden. Die \textit{Auswertung} (\ref{sec:Auswertung}) umfasst eine explorative Untersuchung der Studienpopulation (\ref{sec:CdS}) sowie die Analyse der Nierenmarker (\ref{sec:ABSe}) und deren Beziehung zur Vancomycin-Konzentration (\ref{sec:ZmVE}). Abschließend werden die zentralen Befunde zusammengefasst und diskutiert. 
+
+
+%-------------------------------------------------------------------------%
+% Problemstellung
+\section{Problemstellung}\label{sec:Problem}
+Aufgrund der nephrotoxischen Wirkung von Vancomycin ist eine sorgfältige Überwachung der Nierenfunktion erforderlich. Insbesondere stellt sich die Frage, in welchem Ausmaß die Höhe der Vancomycin-Exposition mit Veränderungen renaler Marker assoziiert ist. Nachfolgend werden darum Zielsetzung und Datengrundlage erläutert. 
+
+
+%-------------------------------------------------------------------------%
+% Zielsetzung
+\subsection{Zielsetzung} \label{sec:Ziel}
+Ziel der vorliegenden Analyse ist die Untersuchung des Zusammenhangs zwischen Vancomycin-Exposition und Nierenfunktion. Es wird zudem auf die Sinnhaftigkeit von den gewählten Darstellungsformen eingegangen.
+
+Zunächst erfolgt eine deskriptive Charakterisierung der Studienpopulation hinsichtlich Alter, Körpergröße und Körpergewicht. Anschließend werden die Nierenmarker Serumkreatinin (SCr) und geschätzte glomeruläre Filtrationsrate (eGFR) analysiert, um die Konsistenz des Datensatzes zu überprüfen sowie erste Assoziationsmuster zu identifizieren.
+In einem weiteren Schritt wird der Zusammenhang zwischen Vancomycin-Konzentrationen und Veränderungen der Nierenmarker untersucht, um mögliche Zusammenhänge zwischen Exposition und Nierenfunktion explorativ zu analysieren. 
+
+
+%-------------------------------------------------------------------------%
+% Datenbeschreibung
+\subsection{Datenbeschreibung}\label{sec:Daten}
+Die Analyse basiert auf einem gekürzten Datensatz aus einer retrospektiven Kohortenstudie, die auf der Intensivstation des Krankenhauses Köln-Merheim durchgeführt wurde. Der Datenauszug umfasst Patienten, die im Zeitraum vom 1. Mai 2010 bis zum 5. August 2022 eine kontinuierliche Vancomycin-Infusion erhalten haben. Der verwendete Datensatz enthält insgesamt 922 Beobachtungen mit 63 Variablen, welche verschiedene demographische, klinische und therapiebezogene Merkmale abbilden. Im Rahmen der vorliegenden Untersuchung wurden jedoch nur jene Variablen berücksichtigt, die für die Analyse des Zusammenhangs zwischen Vancomycin-Exposition und Nierenfunktion relevant erschienen. Im Einzelnen umfassen diese:
+
+\begin{table}[H]
+\small
+\centering
+\begin{tabular}{p{3.2cm} p{2cm} p{5cm} p{3cm}}
+    \toprule
+    Merkmal & Messniveau & Beschreibung & Ausprägungen \\\midrule
+    Gender & nominal & Geschlecht des Patienten & \{männlich, \newline weiblich\} \\
+    Age [Jahre] & metrisch & Alter des Patienten, \newline berechnet aus Birthdate & [23, 105] \\
+    Height [cm] & metrisch & Körpergröße des Patienten & [120, 204] \\
+    Weight [kg] & metrisch & Körpergewicht des Patienten & [35, 200] \\\bottomrule
+\end{tabular}
+\caption{\label{tab:demo}Demographische Variablen.}
+\end{table}
+
+\begin{table}[H]
+\small
+\centering
+\begin{tabular}{p{3.2cm} p{2cm} p{5cm} p{3cm}}
+    \toprule
+    Merkmal & Messniveau & Beschreibung & Ausprägungen \\\midrule
+    SCr$_{\mathrm{Start}}$ [mg/dL] & metrisch & SCr zu Therapiebeginn & [0.18, 7.96] \\
+    SCr$_{24}$ [mg/dL] & metrisch & SCr 24 h nach Therapiebeginn & [0.18, 7.25] \\
+    SCr$_{48}$ [mg/dL] & metrisch & SCr 48 h nach Therapiebeginn & [0.20, 7.66] \\
+    SCr$_{72}$ [mg/dL] & metrisch & SCr 72 h nach Therapiebeginn & [0.23, 7.11]; \newline fehlend: 9  \\
+    SCr$_{\mathrm{End}}$ [mg/dL] & metrisch & SCr zu Therapieende & [0.14, 5.87]; \newline fehlend: 9  \\
+    \textit{$\Delta$SCr} [mg/dL] & metrisch & Differenz des SCr \newline (72 h - Start) & [-3.50, 3.22]; \newline fehlend: 9\\\bottomrule
+\end{tabular}
+\caption{\label{tab:SCr}Serumkreatinin-Messzeitpunkte (SCr) und abgeleitete Variablen.}
+\end{table}
+
+\begin{table}[H]
+\small
+\centering
+\begin{tabular}{p{3.2cm} p{2cm} p{5cm} p{3cm}}
+    \toprule
+    Merkmal & Messniveau & Beschreibung & Ausprägungen \\\midrule
+    eGFR$_{\mathrm{Start}}$ \newline [mL/min/1.73 m$^2$] & metrisch & eGFR zu Therapiebeginn & [6.91, 162.21] \\
+    eGFR$_{24}$ \newline [mL/min/1.73 m$^2$] & metrisch & eGFR 24 h nach Therapiebeginn & [7.73, 161.46] \\
+    eGFR$_{48}$ \newline [mL/min/1.73 m$^2$] & metrisch & eGFR 48 h nach Therapiebeginn & [7.23, 160.12] \\
+    eGFR$_{72}$ \newline [mL/min/1.73 m$^2$] & metrisch & eGFR 72 h nach Therapiebeginn & [7.91, 166.06]; \newline fehlend: 9 \\
+    eGFR$_{\mathrm{End}}$ \newline [mL/min/1.73 m$^2$] & metrisch & eGFR zu Therapieende & [9.51, 172.34]; \newline fehlend: 9 \\
+    \textit{$\Delta$eGFR} \newline [mL/min/1.73 m$^2$] & metrisch & Differenz der eGFR \newline (72 h - Start) & [-82.08, 73.33]; \newline fehlend: 9\\\bottomrule
+\end{tabular}
+\caption{\label{tab:eGFR}Messzeitpunkte der geschätzten glomerulären Filtrationsrate (eGFR) und abgeleitete Variablen.}
+\end{table}
+
+\begin{table}[H]
+\small
+\centering
+\begin{tabular}{p{3.2cm} p{2cm} p{5cm} p{3cm}}
+    \toprule
+    Merkmal & Messniveau & Beschreibung & Ausprägungen \\\midrule
+    C$_{24}$ [mg/L] & metrisch & C 24 h nach Therapiebeginn & [2.90, 47.75] \\
+    C$_{48}$ [mg/L] & metrisch & C 48 h nach Therapiebeginn & [1.67, 59.30] \\
+    C$_{72}$ [mg/L] & metrisch & C 72 h nach Therapiebeginn & [5.80, 71.71]; \newline fehlend: 96\\
+    $\bar{C}$ [mg/L] & metrisch & Mittelwert aus C$_{24}$, C$_{48}$, C$_{72}$ & [5.32, 51.95] \\\bottomrule
+\end{tabular}
+\caption{\label{tab:C}Messzeitpunkte der Vancomycin-Serum-Spiegel (C) und abgeleitete Variablen.}
+\end{table}
+
+Zur Datenaufbereitung und Visualisierung wurden die Variablen \textit{Age}, \textit{$\Delta$SCr}, \textit{$\Delta$eGFR} und \textit{$\bar{C}$} abgeleitet. Das Alter (\textit{Age}) wurde auf Basis der vorhandenen Geburtsdaten in Lebensjahre umgerechnet. Die Differenzvariablen $\Delta$SCr und $\Delta$eGFR wurden jeweils als Differenz zwischen den Messwerten zu Therapiebeginn und nach 72 Stunden definiert. Zusätzlich wurde die mittlere Vancomycin-Konzentration $\bar{\mathrm{C}}$ berechnet, die dem arithmetischen Mittel der Messungen nach 24, 48 und 72 Stunden entspricht. Außerdem wurden Daten in ein Long-Format überführt, um mehrere Variablen in gemeinsamen Diagrammstrukturen besser darstellen zu können (siehe Listing \ref{lst:abb1}). Der vollständige R-Code ist im Anhang (\ref{sec:RCode}) aufgeführt.  
+
+
+%-------------------------------------------------------------------------%
+% Auswertung
+\section{Auswertung}\label{sec:Auswertung}
+Die folgende Auswertung wurde mit der Statistik-Software R \citep{R} durchgeführt. Die hier präsentierten Graphiken sind zudem unter Verwendung der R-Pakete \texttt{tidyr} \citep{tidyr}, \texttt{dplyr} \citep{dplyr}, \texttt{ggplot2} \citep{ggplot2}, \texttt{gridExtra} \citep{gridExtra}, \texttt{corrplot} \citep{corrplot2024}, \texttt{hexbin} \citep{hexbin} und \texttt{tikzDevice} \citep{tikz} entstanden.
+
+
+%-------------------------------------------------------------------------%
+% Charakterisierung der Studienpopulation
+\subsection{Charakterisierung der Studienpopulation}\label{sec:CdS}
+Zum Einstieg in die Auswertung werden die Patienten hinsichtlich demographischer Merkmale wie dem Alter, der Körpergröße und dem Körpergewicht charakterisiert. Ziel ist es, ein grundlegendes Verständnis über die Stichprobenstruktur zu gewinnen und potenzielle Einflussfaktoren für die nachfolgenden Analysen zu identifizieren. Dazu werden drei nichtparametrische Kerndichteschätzungen verwendet, um eine glatte Approximation ohne Annahmen über die Verteilungen zu treffen.
+
+%\begin{figure}[H]
+%\centering
+%\input{population.tex}
+%\caption{\label{fig:abb1}Nichtparametrische Kerndichteschätzungen der Verteilungen von Alter, Körpergröße und Körpergewicht in der Studienpopulation, getrennt nach Geschlecht. Die Dichteschätzungen wurden mittels Gauß-Kern berechnet. Der zugehörige R-Code zur Erstellung dieser Graphik ist im Anhang \ref{sec:RCode} unter Auflistung \ref{lst:abb1} zu finden.}
+%\end{figure}
+
+Es zeigt sich eine vergleichbare Struktur der Altersverteilung. Beide Verteilungen sind linksschief und zentrieren sich um etwa 80 Jahre, was auf eine überwiegend ältere Patientenpopulation hinweist. Die Verteilungen der Körpergröße unterscheiden sich erwartungsgemäß: Männer weisen einen Schwerpunkt um etwa 180cm auf, während dieser bei Frauen bei rund 166cm liegt. Ein vergleichbares Muster zeigt sich auch für das Körpergewicht, dessen zentrale Lage bei Männern etwa 80kg und bei Frauen etwa 70kg beträgt.
+
+Nichtparametrische Kerndichteschätzungen ermöglichen die Visualisierung von Verteilungen, ohne eine spezifische Verteilungsannahme zu treffen. Insbesondere im Rahmen einer explorativen Analyse demographischer Parameter ist diese Eigenschaft vorteilhaft, da die empirische Verteilungsstruktur zuverlässig dargestellt werden kann. Die Methode liefert eine glatte Approximation der zugrunde liegenden Dichtefunktion auf Basis der beobachteten Stichprobe und erleichtert dadurch den Vergleich zwischen Gruppen. 
+
+Allerdings ist die visuelle Struktur der Kerndichteschätzung sensibel gegenüber der Wahl der Bandbreite, welche das Ausmaß der Glättung bestimmt. Eine ungeeignete Wahl kann dazu führen, dass künstliche Strukturen auftreten oder relevante Muster überglättet werden. Darüber hinaus werden keine absoluten Häufigkeiten abgebildet, sodass bei unterschiedlich großen Stichproben Fehlinterpretationen der Fallzahlen möglich sind. \\
+
+
+%-------------------------------------------------------------------------%
+% Analyse der Beziehung zwischen SCr und eGFR
+\subsection{Analyse der Beziehung zwischen SCr und eGFR}\label{sec:ABSe}
+Im nächsten Schritt wird der Zusammenhang zwischen den Nierenmarkern Serumkreatinin (SCr) und geschätzte glomeruläre Filtrationsrate (eGFR) näher untersucht, insbesondere um die Konsistenz des Datensatzes zu überprüfen. Hierzu wird eine Korrelationsmatrix dargestellt, welche potenzielle Zusammenhänge und Muster zwischen den Variablen sichtbar macht. 
+
+%\vspace{-1.2cm}
+%\begin{figure}[H]
+%\centering
+%\scalebox{0.95}{%
+%\begin{tikzpicture}
+%  \useasboundingbox (-10pt, -10pt) rectangle (\linewidth,1.05\linewidth);
+%  \input{corrplot.tex}
+%\end{tikzpicture}%
+%}
+%\caption{\label{fig:abb2}Korrelationsmatrix der Nierenmarker SCr und eGFR zu Therapiebeginn sowie 24, 48 und 72 Stunden nach Therapiebeginn. Stärke und Richtung der Korrelation werden durch Farbintensität und Größe der Kreise dargestellt. Der zugehörige R-Code zur Erstellung dieser Graphik ist im Anhang \ref{sec:RCode} unter Auflistung \ref{lst:abb2} zu finden.}
+%\end{figure}
+
+Die Abbildung zeigt sowohl positive als auch negative Korrelationen zwischen den verschiedenen Messzeitpunkten der SCr- und eGFR-Werte. Innerhalb der jeweiligen Nierenmarker bestehen positive Zusammenhänge, welche durch blaue Kreise dargestellt werden. Zwischen den SCr- und eGFR-Zeitpunkten hingegen zeigen sich negative Assoziationen, die mit roten Kreisen visualisiert sind. Darüber hinaus nimmt die Stärke der Korrelation, welche durch Farbintensität und Größe der Kreise abgebildet ist, mit zunehmendem Abstand zwischen den Messzeitpunkten ab.
+
+Zur Interpretation der beobachteten Zusammenhänge ist zunächst die Berechnung der eGFR-Werte zu berücksichtigen. Die geschätzte glomeruläre Filtrationsrate wird nicht direkt gemessen, sondern auf Basis mehrerer Variablen berechnet, insbesondere des Serumkreatinins (SCr), des Alters und des Geschlechts. Entsprechend besteht bereits definitionsgemäß eine mathematische Beziehung zwischen SCR und eGFR. Zur Berechnung der eGFR-Werte liegt die \textit{CKD-EPI}-Formel zugrunde:
+\[
+\mathrm{eGFR} = 141 \cdot \min\left(\frac{SCr}{K}, 1\right)^\alpha \cdot \max\left(\frac{SCr}{K}, 1\right)^{-1.209} \cdot 0.993^{Alter},
+\]
+wobei \textit{SCr} das Serumkreatinin in mg/dL bezeichnet, \textit{K} und \textit{$\alpha$} geschlechtsabhängige Faktoren sind (Frauen: K = 0.7, $\alpha$ = -0.329; Männer: K = 0.9, $\alpha$ = -0.411) und \textit{Alter} das Alter des Patienten in Jahren darstellt \citep{DocCheckCKDEPI}. 
+
+Anhand der CKD-EPI-Formel kann eine inverse Beziehung zwischen SCr und eGFR abgeleitet werden: SCr geht im Nenner ein und wird mit negativen Exponenten potenziert. Bei konstantem Geschlecht und Alter führt ein Anstieg von SCr daher zu einer Abnahme der eGFR. Entsprechend erwartbar sind negative Korrelationen zwischen SCr- und eGFR-Messungen, welche in der Korrelationsmatrix wiederzufinden sind.
+
+Die gewählte Visualisierung fokussiert sich auf die Darstellung der zuvor genannten Assoziationen. Durch die doppelte Kodierung der Korrelationsstärke mittels Farbintensität und Kreisgröße wird die zentrale Aussage der Abbildung eindeutig vermittelt. Eine Limitation dieser Darstellungsform besteht jedoch darin, dass statistische Kennzahlen wie p-Werte, Konfidenzintervalle oder die Stichprobengröße nicht ersichtlich sind. Die Abbildung eignet sich somit primär zur explorativen Untersuchung der Zusammenhänge sowie einer Konsistenzanalyse mit bekannten physiologischen Beziehungen, erlaubt aber keine direkte statistische Bewertung der Signifikanz.
+
+
+%-------------------------------------------------------------------------%
+%Zusammenhang mit Vancomycin-Exposition
+\subsection{Einfluss der Vancomycin-Exposition auf renale Marker}\label{sec:ZmVE}
+
+Aufbauend auf den vorherigen Ergebnissen wird nun die Beziehung zwischen den Nierenmarkern und der Vancomycin-Exposition untersucht. Hierfür werden zwei Hexbin-Plots herangezogen, welche die Dichte der Beobachtungen mittels Farbkodierung abbilden und eine differenzierte Beurteilung möglicher Zusammenhänge erlauben. Um den Verlauf der renalen Marker zu analysieren werden zunächst die Differenzen $\Delta$SCr und $\Delta$eGFR gebildet und in Beziehung zur mittleren Vancomycin-Konzentration $\bar{\mathrm{C}}$ gesetzt. Darüber hinaus werden LOESS-Kurven überlagert, um einen möglichen nichtlinearen Zusammenhang zu illustrieren. 
+
+%\vspace{-0.1cm}
+%\begin{figure}[H]
+%\centering
+%\resizebox{\linewidth}{!}{\input{ZhSCreGFR.tex}}
+%\vspace{-0.5cm}
+%\caption{\label{fig:abb3}Hexbin-Plots der Veränderungen der Nierenmarker SCr und eGFR in Abhängigkeit von der mittleren Vancomycin-Konzentration ($\bar{\mathrm{C}}$). Die überlagerten LOESS-Kurven illustrieren mögliche nichtlineare Zusammenhänge in den Daten. Der zugehörige R-Code zur Erstellung dieser Graphik ist im Anhang \ref{sec:RCode} unter Auflistung \ref{lst:abb3} zu finden.}
+%\end{figure}
+
+Anhand der LOESS-Kurven lässt sich zunächst der zuvor beschriebene inverse Zusammenhang zwischen SCr und eGFR erkennen: Mit steigendem $\Delta$SCr-Wert sinkt die $\Delta$eGFR. 
+
+Im Kontext der Behandlung grampositiver Infektionen mit Vancomycin lässt sich erkennen, dass mit steigender Vancomycin-Konzentration höhere SCr-Werte und niedrigere eGFR-Werte einhergehen, was mit einer Verschlechterung der Nierenfunktion vereinbar ist. Zudem zeigt sich für $\Delta$SCr eine Häufung von Beobachtungen im Konzentrationsbereich von etwa 15 bis 20 mg/L. Dieser Bereich entspricht den in Leitlinien empfohlenen Vancomycin-Talspiegeln für schwere Infektionen \citep{pais2020vancomycin}. Innerhalb dieses Konzentrationsbereiches lässt sich weder für $\Delta$SCr noch für $\Delta$eGFR eine ausgeprägte Verschlechterung der Nierenfunktion erkennen. Erst bei höheren Vancomycin-Konzentrationen, insbesondere ab etwa 25 mg/L, deutet sich ein Anstieg der SCr-Werte sowie ein Rückgang der eGFR-Werte an. Allerdings ist anzumerken, dass im Bereich hoher Vancomycin-Konzentrationen die Zahl der Beobachtungen abnimmt. Dadurch gewinnen einzelne Datenpunkte relativ an Einfluss, was die Konfidenz der LOESS-Anpassung in diesen Bereichen reduziert. Zudem lässt sich die Varianz der renalen Marker durch die LOESS-Kurven nicht vollständig abbilden, da insbesondere für $\Delta$eGFR eine ausgeprägte Streuung vorliegt. Dies ist plausibel, da die eGFR nicht ausschließlich vom SCr abhängt, sondern zusätzlich Faktoren wie Alter und Geschlecht in ihre Berechnung einfließen. Da die vorliegende Kohorte überwiegend aus älteren Patienten besteht, ist mit einer erhöhten Variabilität der eGFR-Werte zu rechnen \citep{kan2022vancomycin}. 
+
+Diese Befunde legen nahe, dass neben der Vancomycin-Exposition weitere Faktoren wie Komorbiditäten, nephrotoxische Begleitmedikation oder klinische Rahmenbedingungen einen stärkeren Einfluss auf die Niere ausüben könnten.
+
+Die Wahl eines Hexbin-Plots als Darstellungsform erweist sich als vorteilhaft, da durch die Aggregation vieler verdichteter Datenpunkte das Problem des Overplottings reduziert wird. Hierbei werden hexagonale Bins verwendet, deren Farbkodierung die lokale Punktdichte repräsentiert. Dadurch treten strukturelle Muster hervor, die Rückschlüsse auf mögliche Zusammenhänge zwischen den Variablen erlauben. 
+
+%\vspace{-0.1cm}
+%\begin{figure}[H]
+%\centering
+%\resizebox{\linewidth}{!}{\input{HexScat.tex}}
+%\vspace{-0.5cm}
+%\caption{\label{fig:abb4}Gegenüberstellung zweier alternativer Visualisierungsformen: Scatterplot (rechts) und Hexbin-Plot (links). Der Farbverlauf der Hexbin-Abbildung reduziert Overplotting-Effekte und ermöglicht eine klarere Darstellung der Punktdichte. Der zugehörige R-Code zur Erstellung dieser Graphik ist im Anhang \ref{sec:RCode} unter Auflistung \ref{lst:abb4} zu finden.}
+%\end{figure}
+
+Dahingehend sind Scatterplots als klassische Visualisierungsform unterlegen, da bei großen Stichprobenumfängen Überlagerungseffekte auftreten können, die die Interpretierbarkeit der Daten einschränken. Die visuelle Struktur eines Hexbin-Plots ist jedoch sensibel gegenüber der Wahl der Bin-Größe, sodass unterschiedliche Parametrisierungen zu variierenden visuellen Eindrücken der Daten führen können. Zudem geht durch die Aggregation einzelner Beobachtungen in Bins Detailinformation verloren, was insbesondere bei kleinen Stichproben relevant ist. 
+
+
+%-------------------------------------------------------------------------%
+% Zusammenfassung
+\section{Zusammenfassung}
+Ziel des vorliegenden Berichts war die Untersuchung des Zusammenhangs zwischen Vancomycin-Exposition und Veränderungen der Nierenfunktion auf Basis eines retrospektiven Kohortenstudiendatensatzes. Die Analyse der Nierenmarker Serumkreatinin (SCr) und geschätzte glomeruläre Filtrationsrate (eGFR) bestätigte die erwartete inverse Beziehung zwischen beiden Parametern. Im weiteren Verlauf wurden die Veränderungen der Marker in Abhängigkeit von der mittleren Vancomycin-Konzentration untersucht, um mögliche Hinweise auf eine nephrotoxische Wirkung zu identifizieren. 
+
+Im Konzentrationsbereich von 15-20 mg/L zeigte sich keine deutliche Verschlechterung der Nierenfunktion. In höheren Konzentrationsbereichen deutete sich hingegen ein Anstieg der SCr-Werte sowie ein Rückgang der eGFR-Werte an. Aufgrund der geringeren Beobachtungszahl in diesen Bereichen sowie der insgesamt hohen Streuung, insbesondere bei den $\Delta$eGFR-Werten, sind diese Befunde jedoch primär explorativ zu interpretieren. 
+
+Insgesamt heben die Ergebnisse die Bedeutung einer sorgfältigen therapeutischen Überwachung von Vancomycin-Konzentrationen hervor, insbesondere bei älteren Patienten.
+
+
+%-------------------------------------------------------------------------%
+% Literaturverzeichnis
+\newpage
+\addcontentsline{toc}{section}{Literaturverzeichnis}
+\renewcommand{\refname}{Literaturverzeichnis}
+\bibliographystyle{apalike-german} %abbrvnat
+\bibliography{Referenzen}
+
+
+
+%-------------------------------------------------------------------------%
+% Anhang
+\newpage
+\appendix
+\pagenumbering{Roman}
+\section{Anhang}
+
+
+%-------------------------------------------------------------------------%
+% R-Code
+\subsection{R-Code}\label{sec:RCode}
+Der folgende R-Code lädt die verwendeten \texttt{R-Pakete}, welche für die Erstellung der Graphiken genutzt wurden.
+
+\begin{lstlisting}[caption={Benötigte Pakete}, label = lst:setting, style=mystyle]
+# Pakete
+library("tidyr")
+library("dplyr")
+library("ggplot2")
+library("gridExtra")
+library("corrplot")
+library("hexbin")
+library("tikzDevice")
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Code für Abbildung \ref{fig:abb1}}, label = lst:abb1, style=mystyle, escapeinside=``]
+df <- data.frame(
+  gender = dat$Gender,
+  birthdate = dat$Birthdate,
+  height = dat$Height,
+  weight = dat$Weight
+)
+
+df <- df %>%
+  mutate(
+    age = as.numeric(difftime(Sys.Date(), as.Date(birthdate), units = "days"))/365.25,
+    gender = factor(tolower(gender), levels = c("male","female"))
+  )
+
+long <- df %>%
+  select(gender, age, height, weight) %>%
+  pivot_longer(cols = c(age, height, weight),
+               names_to = "variable",
+               values_to = "value")
+
+long$variable <- factor(long$variable,
+                             levels = c("age","height","weight"),
+                             labels = c("Alter (Jahre)", "Größe (cm)", "Gewicht (kg)"))
+
+ggplot(long, aes(x = value, color = gender)) +
+  geom_density(kernel = "gaussian", 
+               adjust = 1.8,
+               linewidth = 0.7) +
+  geom_rug(alpha = 0.15, linewidth = 0.5) +
+  facet_wrap(~ variable, scales = "free_x", nrow = 1) +
+  labs(x = NULL, y = "Dichte", color = "Geschlecht") +
+  scale_color_manual(values = c("male" = "#5ac9c7", "female" = "#ec5b5b"),
+                     labels = c("männlich", "weiblich")) +
+  guides(color = guide_legend(override.aes = list(linewidth = 0.5))) +
+  theme_minimal() + theme(
+    text = element_text(size = 9),
+    axis.title = element_text(size = 7),
+    axis.text = element_text(size = 6),
+    plot.title = element_text(size = 13),
+    legend.key.size = unit(0.3, "cm"),
+    legend.spacing.x = unit(0.1, "cm"),
+    legend.title = element_text(size=7)
+  )
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Code für Abbildung \ref{fig:abb2}}, label = lst:abb2, style=mystyle, escapeinside=``]
+dat_kidney <- data.frame(
+  SCrStart = dat$SCrStart,
+  SCr24 = dat$SCr24,
+  SCr48 = dat$SCr48,
+  SCr72 = dat$SCr72,
+  SCrEnd = dat$SCrEnd,
+  eGFRStart = dat$eGFRStart,
+  eGFR24 = dat$eGFR24,
+  eGFR48 = dat$eGFR48,
+  eGFR72 = dat$eGFR72,
+  eGFREnd = dat$eGFREnd
+)
+
+corrplot(cor(dat_kidney, use = "complete.obs"),
+         tl.col = "black", tl.cex = 0.95, tl.srt = 45, cl.cex = 0.75, cl.ratio = 0.2, cl.offset = 1)
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Code für Abbildung \ref{fig:abb3}}, label = lst:abb3, style=mystyle, escapeinside=``]
+dat$C_mean <- rowMeans(dat[,c("C24","C48","C72")], na.rm=TRUE)
+dat$deltaSCr <- dat$SCr72 - dat$SCrStart
+dat$deltaeGFR <- dat$eGFR72 - dat$eGFRStart
+
+max_count <- max(
+  hexbin(dat$C_mean, dat$deltaSCr, xbins = 41)@count,
+  hexbin(dat$C_mean, dat$deltaeGFR, xbins = 41)@count
+)
+
+p1 <- ggplot(dat, aes(x = C_mean, y = deltaSCr)) +
+  geom_hex(alpha = 0.75, bins = 41) +
+  geom_smooth(method = "loess", se = TRUE, color = "red") +
+  scale_fill_viridis_c(
+    option = "E",
+    breaks = c(0, 15, 30),
+    name = "Anzahl\nPatienten",
+    limits = c(0, max_count)
+  ) +
+  labs(
+    x = "$\\bar{C}\\,(\\mathrm{mg/L})$",
+    y = "$\\Delta SCr\\,(\\mathrm{mg/dL})$"
+    
+  ) +
+  theme_minimal() +
+  theme(text = element_text(size = 10),
+        axis.title = element_text(size = 9),
+        axis.text = element_text(size = 7),
+        axis.title.x = element_text(margin = margin(t = 10)),
+        legend.title = element_text(size = 8),
+        legend.text = element_text(size = 7),
+        legend.key.size = unit(0.3, "cm"),
+        legend.spacing.x = unit(0.05, "cm")
+  )
+
+p2 <- ggplot(dat, aes(x = C_mean, y = deltaeGFR)) +
+  geom_hex(alpha = 0.75, bins = 41) +
+  geom_smooth(method = "loess", se = TRUE, color = "red") +
+  scale_fill_viridis_c(
+    option = "E",
+    breaks = c(0, 15, 30),
+    name = "Anzahl\nPatienten",
+    limits = c(0, max_count)
+  ) +
+  labs(
+    x = "$\\bar{C}\\,(\\mathrm{mg/L})$",
+    y = "$\\Delta eGFR\\,(\\mathrm{mL/min/1.73\\,m^2})$"
+  ) +
+  theme_minimal() +
+  theme(text = element_text(size = 10),
+        axis.title = element_text(size = 9),
+        axis.text = element_text(size = 7),
+        axis.title.x = element_text(margin = margin(t = 10)),
+        legend.title = element_text(size = 8),
+        legend.text = element_text(size = 7),
+        legend.key.size = unit(0.3, "cm"),
+        legend.spacing.x = unit(0.05, "cm")
+  )
+
+plot_save_1 <- grid.arrange(p1, p2, ncol = 2)
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Code für Abbildung \ref{fig:abb4}}, label = lst:abb4, style=mystyle, escapeinside=``]
+p3 <- ggplot(dat, aes(x = C_mean, y = deltaeGFR)) +
+  geom_point(alpha = 0.75) +
+  geom_smooth(method = "loess", se = TRUE, color = "red") +
+  scale_fill_viridis_c(
+    option = "E",
+    breaks = c(0, 15, 30),
+    name = "Anzahl\nPatienten",
+    limits = c(0, max_count)
+  ) +
+  labs(
+    x = "$\\bar{C}\\,(\\mathrm{mg/L})$",
+    y = "$\\Delta eGFR\\,(\\mathrm{mL/min/1.73\\,m^2})$"
+  ) +
+  theme_minimal() +
+  theme(text = element_text(size = 10),
+        axis.title = element_text(size = 9),
+        axis.text = element_text(size = 7),
+        axis.title.x = element_text(margin = margin(t = 10)),
+        legend.title = element_text(size = 8),
+        legend.text = element_text(size = 7),
+        legend.key.size = unit(0.3, "cm"),
+        legend.spacing.x = unit(0.05, "cm")
+  )
+
+p2 <- ggplot(dat, aes(x = C_mean, y = deltaeGFR)) +
+  geom_hex(alpha = 0.75, bins = 41) +
+  geom_smooth(method = "loess", se = TRUE, color = "red") +
+  scale_fill_viridis_c(
+    option = "E",
+    breaks = c(0, 15, 30),
+    name = "Anzahl\nPatienten",
+    limits = c(0, max_count)
+  ) +
+  labs(
+    x = "$\\bar{C}\\,(\\mathrm{mg/L})$",
+    y = "$\\Delta eGFR\\,(\\mathrm{mL/min/1.73\\,m^2})$"
+  ) +
+  theme_minimal() +
+  theme(text = element_text(size = 10),
+        axis.title = element_text(size = 9),
+        axis.text = element_text(size = 7),
+        axis.title.x = element_text(margin = margin(t = 10)),
+        legend.title = element_text(size = 8),
+        legend.text = element_text(size = 7),
+        legend.key.size = unit(0.3, "cm"),
+        legend.spacing.x = unit(0.05, "cm")
+  )
+
+plot_save_2 <- grid.arrange(p3, p2, ncol = 2)
+\end{lstlisting}
+
+%\lstset{style=mystyle}
+%\lstinputlisting[firstnumber=9, language=R, style=mystyle]{Code.R}
+
+
+%-------------------------------------------------------------------------%
+% Dokumentende
+\end{document}
