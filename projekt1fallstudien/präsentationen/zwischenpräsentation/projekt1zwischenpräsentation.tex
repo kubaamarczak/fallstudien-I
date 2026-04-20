@@ -16,6 +16,18 @@
 \usepackage{xcolor}
 \usepackage{tikz}
 \definecolor{progress}{HTML}{9b9bba}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+  language=R,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+  showstringspaces=false,
+  breaklines=true
+}
 
 \title{Projekt \MakeUppercase{\romannumeral 1}  Zwischenpräsentation}
 \author[J. Marczak, G. Kathiravan, M. I. Rahman]{Jakub Marczak, Ganeisraaj Kathiravan, Muhammad Ibrahim Rahman}
@@ -78,7 +90,7 @@
 \end{frame}
 
 % Folie 3 
-\begin{frame}
+\begin{frame}[fragile]{R Code Beispiel}
     \frametitle{Population verstehen}
 %    \begin{figure}
 %        \centering
@@ -86,7 +98,14 @@
 %        \vspace{-0.75cm}
 %        \caption{Kerndichteschätzungen mit Gaußkern für Alter, Größe und Gewicht.}
 %    \end{figure}
+    \begin{lstlisting}
+library(ggplot2)
+ggplot(df, aes(x = age, y = value)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+    \end{lstlisting}
 \end{frame}
+
 
 % Folie 4 
 \begin{frame}
