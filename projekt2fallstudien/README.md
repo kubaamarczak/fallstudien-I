@@ -1,4 +1,4 @@
-# Projekt 1: Deskriptive Analyse von Bildung und Erwerbstätigkeit in deutschen Kreisen
+# Projekt 2: 
 
 ## Termine
 - Zwischenpräsentation: 18/05 14:15
