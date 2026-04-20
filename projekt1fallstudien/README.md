@@ -2,8 +2,8 @@
 
 ## Termine
 
-- Zwischenpräsentation: 23/04 10:15
-- Bericht: 29/04 23:59
+- Zwischenpräsentation: Do. 23/04 10:15
+- Bericht: Mi. 29/04 23:59
 
 ---
 
