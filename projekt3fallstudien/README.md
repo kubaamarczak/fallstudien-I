@@ -1,4 +1,10 @@
-# Projekt 1: Deskriptive Analyse von Bildung und Erwerbstätigkeit in deutschen Kreisen
+# Projekt 3:
+
+## Termine
+- Präsentation (benotet): 08/06 14:15
+- Bericht: 10/06 23:59
+
+---
 
 ## Aufgaben
 
@@ -67,5 +73,5 @@ Die Rohdaten stammen aus der Zensusdatenbank des Statistischen Bundesamtes (Zens
 ---
 
 **Abgabe des Berichts in elektronischer Form und des Programmiercodes (mit allen notwendigen
-Dateien) im Moodle bis Mittwoch, 29. April 2026, 23:59 Uhr. Die Abgabe eines gedruckten
+Dateien) im Moodle bis Mittwoch, 10. Juni 2026, 23:59 Uhr. Die Abgabe eines gedruckten
 Berichts ist nicht erforderlich.**
