@@ -2,9 +2,7 @@
 zensus_wide <- readr::read_csv("zensus2022_wide.csv")
 zensus_long <- readr::read_csv("zensus2022_long.csv")
 
-
 #TASK1
-
 #check structures of variables 
 str(zensus_wide)
 
@@ -13,22 +11,41 @@ summary(zensus_wide)
 
 #we can see that OstDe is int, we must change it to factor
 zensus_wide$Ostdeutschland <- factor(zensus_wide$Ostdeutschland,
-                                      levels = c(0,1),
-                                      labels = c("West", "East"))
+                                     levels = c(0,1),
+                                     labels = c("West", "East"))
 
 zensus_long$Ostdeutschland <- factor(zensus_long$Ostdeutschland,
                                      levels = c(0, 1),
                                      labels = c("West", "East"))
 
-#Verify
-str(zensus_long$Ostdeutschland)
+#create Region column in both datasets
+zensus_wide$Region <- zensus_wide$Ostdeutschland
+zensus_long$Region <- zensus_long$Ostdeutschland
+
+#reorder columns so Region appears in place of Ostdeutschland
+library(dplyr)
+zensus_wide <- zensus_wide %>%
+  select(ARS, Name, Bundesland, Region, Bev_Tausend, Abitur_Quote, 
+         OhneAbschl_Quote, Abitur_GenderGap, Erwerbstaetig_Quote, 
+         Erwerbslos_Quote, Nichterwerb_Quote, Erwerbstaetig_GenderGap, 
+         Erwerbslos_GenderGap)
+
+#verify both
+str(zensus_wide$Region)
+str(zensus_long$Region)
+
+#no missing values check
+colSums(is.na(zensus_wide))
+
+#categorical variables: ARS, Name, Bundesland, Region
+#metric variables: all remaining 9 variables
+#no further cleaning necessary
 
 
-
-#TASK 2 
+#TASK 2
+library(ggplot2)
 ggplot(zensus_long, aes(x="", y = Wert)) +
   geom_boxplot() +
-  geom_jitter(width = 0.05, alpha = 0.3) +
   facet_wrap(~ Variable, scales = "free_y") +
   labs(title = "Boxplot of all metric variables")
 
@@ -124,11 +141,11 @@ zensus_wide %>%
 
 
 
-#TASK 3 ##ask if shud separate one by one each west vs east, or just combine like how i did now.
+#TASK 3 
 
 #boxplots for each variable
 library(ggplot2)
-ggplot(zensus_long, aes(x = Ostdeutschland, y = Wert, fill = Ostdeutschland)) +
+ggplot(zensus_long, aes(x = Region, y = Wert, fill = Region)) +
   geom_boxplot() +
   facet_wrap(~ Variable, scales = "free_y") +
   labs(title = "Boxplots of all variables by East/West",
@@ -138,16 +155,97 @@ ggplot(zensus_long, aes(x = Ostdeutschland, y = Wert, fill = Ostdeutschland)) +
   theme_minimal()
 
 #histograms for each variable
-ggplot(zensus_long, aes(x = Wert, fill = Ostdeutschland, color = Ostdeutschland)) +
+
+#Abitur_Quote
+ggplot(zensus_wide, aes(x = Abitur_Quote, fill = Region, color = Region)) +
   geom_histogram(alpha = 0.6, position = "identity", bins = 30, aes(y = after_stat(density))) +
   geom_density(adjust = 1.4, fill = NA) +
-  facet_wrap(~ Variable, scales = "free") +
-  labs(title = "Histograms of all variables by East/West",
-       x = "Value",
-       y = "Density",
-       fill = "Region",
-       color = "Region") +
+  facet_wrap(~ Region, scales = "free") +
+  labs(title = "Abitur_Quote by East/West",
+       x = "Abitur_Quote (%)", y = "Density",
+       fill = "Region", color = "Region") +
   theme_minimal()
+
+#OhneAbschl_Quote
+ggplot(zensus_wide, aes(x = OhneAbschl_Quote, fill = Region, color = Region)) +
+  geom_histogram(alpha = 0.6, position = "identity", bins = 30, aes(y = after_stat(density))) +
+  geom_density(adjust = 1.4, fill = NA) +
+  facet_wrap(~ Region, scales = "free") +
+  labs(title = "OhneAbschl_Quote by East/West",
+       x = "OhneAbschl_Quote (%)", y = "Density",
+       fill = "Region", color = "Region") +
+  theme_minimal()
+
+#Abitur_GenderGap
+ggplot(zensus_wide, aes(x = Abitur_GenderGap, fill = Region, color = Region)) +
+  geom_histogram(alpha = 0.6, position = "identity", bins = 30, aes(y = after_stat(density))) +
+  geom_density(adjust = 1.4, fill = NA) +
+  facet_wrap(~ Region, scales = "free") +
+  labs(title = "Abitur_GenderGap by East/West",
+       x = "Abitur_GenderGap (pp)", y = "Density",
+       fill = "Region", color = "Region") +
+  theme_minimal()
+
+#Bev_Tausend
+ggplot(zensus_wide, aes(x = Bev_Tausend, fill = Region, color = Region)) +
+  geom_histogram(alpha = 0.6, position = "identity", bins = 30, aes(y = after_stat(density))) +
+  geom_density(adjust = 1.4, fill = NA) +
+  facet_wrap(~ Region, scales = "free") +
+  labs(title = "Bev_Tausend by East/West",
+       x = "Population (thousands)", y = "Density",
+       fill = "Region", color = "Region") +
+  theme_minimal()
+
+#Erwerbstaetig_Quote
+ggplot(zensus_wide, aes(x = Erwerbstaetig_Quote, fill = Region, color = Region)) +
+  geom_histogram(alpha = 0.6, position = "identity", bins = 30, aes(y = after_stat(density))) +
+  geom_density(adjust = 1.4, fill = NA) +
+  facet_wrap(~ Region, scales = "free") +
+  labs(title = "Erwerbstaetig_Quote by East/West",
+       x = "Erwerbstaetig_Quote (%)", y = "Density",
+       fill = "Region", color = "Region") +
+  theme_minimal()
+
+#Erwerbslos_Quote
+ggplot(zensus_wide, aes(x = Erwerbslos_Quote, fill = Region, color = Region)) +
+  geom_histogram(alpha = 0.6, position = "identity", bins = 30, aes(y = after_stat(density))) +
+  geom_density(adjust = 1.4, fill = NA) +
+  facet_wrap(~ Region, scales = "free") +
+  labs(title = "Erwerbslos_Quote by East/West",
+       x = "Erwerbslos_Quote (%)", y = "Density",
+       fill = "Region", color = "Region") +
+  theme_minimal()
+
+#Nichterwerb_Quote
+ggplot(zensus_wide, aes(x = Nichterwerb_Quote, fill = Region, color = Region)) +
+  geom_histogram(alpha = 0.6, position = "identity", bins = 30, aes(y = after_stat(density))) +
+  geom_density(adjust = 1.4, fill = NA) +
+  facet_wrap(~ Region, scales = "free") +
+  labs(title = "Nichterwerb_Quote by East/West",
+       x = "Nichterwerb_Quote (%)", y = "Density",
+       fill = "Region", color = "Region") +
+  theme_minimal()
+
+#Erwerbstaetig_GenderGap
+ggplot(zensus_wide, aes(x = Erwerbstaetig_GenderGap, fill = Region, color = Region)) +
+  geom_histogram(alpha = 0.6, position = "identity", bins = 30, aes(y = after_stat(density))) +
+  geom_density(adjust = 1.4, fill = NA) +
+  facet_wrap(~ Region, scales = "free") +
+  labs(title = "Erwerbstaetig_GenderGap by East/West",
+       x = "Erwerbstaetig_GenderGap (pp)", y = "Density",
+       fill = "Region", color = "Region") +
+  theme_minimal()
+
+#Erwerbslos_GenderGap
+ggplot(zensus_wide, aes(x = Erwerbslos_GenderGap, fill = Region, color = Region)) +
+  geom_histogram(alpha = 0.6, position = "identity", bins = 30, aes(y = after_stat(density))) +
+  geom_density(adjust = 1.4, fill = NA) +
+  facet_wrap(~ Region, scales = "free") +
+  labs(title = "Erwerbslos_GenderGap by East/West",
+       x = "Erwerbslos_GenderGap (pp)", y = "Density",
+       fill = "Region", color = "Region") +
+  theme_minimal()
+
 
 #what do we see?
 #Abitur_Quote
@@ -190,26 +288,23 @@ ggplot(zensus_long, aes(x = Wert, fill = Ostdeutschland, color = Ostdeutschland)
 
 
 #TASK 4
-
-#create paiwrise scatterplots and find the relationships
-
+#create pairwise scatterplots and find the relationships
 pairs(zensus_wide[, 5:13],
-      col = ifelse(zensus_wide$Ostdeutschland == "East", "steelblue", "salmon"),
+      lower.panel = NULL,
+      col = ifelse(zensus_wide$Region == "East", "steelblue", "salmon"),
       pch = 16,
       cex = 0.5,
       main = "Pairwise scatterplots of all metric variables",
-      oma = c(3, 4, 4, 4))
-#oma adds extra space at the bottom
+      oma = c(3, 3, 5, 3))
 
 par(xpd = TRUE)
-
-legend(x = 0.4, y = -0.01,
+legend(x = "bottom",
        legend = c("West", "East"),
        col = c("salmon", "steelblue"),
        pch = 16,
        cex = 0.9,
-       bty = "n",         
-       horiz = TRUE)       
+       bty = "n",
+       horiz = TRUE)
 
 #what do we observe from the pairwise scatterplot?
 
@@ -243,29 +338,32 @@ legend(x = 0.4, y = -0.01,
 #mostly scattered clouds across all pairs, weak relationships overall
 
 
-#TASK 5 (include stars for significance - pvalue)
+#TASK 5
 
-library(psych)
 #correlation plot with significance stars
-par(mar = c(18, 15, 4, 2))
-cor.plot(zensus_wide[, 5:13],
+library(psych)
+
+#copy with shorter names, original data untouched
+plot_data <- zensus_wide[, 5:13]
+colnames(plot_data) <- c(
+  "Bev_Tausend", "Abitur_Quote", "OhneAbschl",
+  "Abitur_Gap", "Erwerbst_Quote", "Erwerbslos_Quote",
+  "Nichterw_Quote", "Erwerbst_Gap", "Erwerbslos_Gap"
+)
+
+cor.plot(plot_data,
          numbers = TRUE,
          upper = FALSE,
          main = "Correlation plot of all metric variables",
-         show.legend = TRUE,
+         show.legend = FALSE,
          cex = 0.8,
          xlas = 2,
          stars = TRUE)
-# stars = TRUE adds * ** *** to each cell based on significance
-# * p < 0.05, ** p < 0.01, *** p < 0.001
-#significance analysis, we find the p-value of the correlations
+
+#significance analysis
 result <- corr.test(zensus_wide[, 5:13])
-result$r
-result$p
-#round off so easier to see and no "e" notation
-#round to 4 decimal places 
-round(result$p, 4)
 round(result$r, 4)
+round(result$p, 4)
 
 #findings
 #research conventions(cohen 1988) 
@@ -338,19 +436,15 @@ round(result$r, 4)
 #longitudinal data, or more advanced causal inference methods
 
 
-#TASK 7 
+#TASK 7
+#identify at least 3 variables that influence unemployment rate
+#top 3 based on correlation: OhneAbschl_Quote, Erwerbstaetig_Quote, Abitur_Quote
 
-#3 variables that maybe influence unemployment rate and see univariate and multivariate methods
-#top 3 r corr is ohneabschl, erwerbstaetig, abitur quotes
+#univariate methods
 
-#reset margins from task 5
-#reset graphics device and margins
-dev.off()
-par(mar = c(5, 4, 4, 2))
-
-#OhneAbschl_Quote vs Erwerbslos_Quote
+#scatterplot: OhneAbschl_Quote vs Erwerbslos_Quote
 ggplot(zensus_wide, aes(x = OhneAbschl_Quote, y = Erwerbslos_Quote,
-                        color = Ostdeutschland)) +
+                        color = Region)) +
   geom_point(alpha = 0.6, size = 1.5) +
   geom_smooth(method = "lm", se = TRUE) +
   labs(title = "OhneAbschl_Quote vs Erwerbslos_Quote",
@@ -359,9 +453,9 @@ ggplot(zensus_wide, aes(x = OhneAbschl_Quote, y = Erwerbslos_Quote,
        color = "Region") +
   theme_minimal()
 
-#Abitur_Quote vs Erwerbslos_Quote
+#scatterplot: Abitur_Quote vs Erwerbslos_Quote
 ggplot(zensus_wide, aes(x = Abitur_Quote, y = Erwerbslos_Quote,
-                        color = Ostdeutschland)) +
+                        color = Region)) +
   geom_point(alpha = 0.6, size = 1.5) +
   geom_smooth(method = "lm", se = TRUE) +
   labs(title = "Abitur_Quote vs Erwerbslos_Quote",
@@ -370,17 +464,21 @@ ggplot(zensus_wide, aes(x = Abitur_Quote, y = Erwerbslos_Quote,
        color = "Region") +
   theme_minimal()
 
-#Ostdeutschland vs Erwerbslos_Quote
-boxplot(Erwerbslos_Quote ~ Ostdeutschland, data = zensus_wide,
+#boxplot: Region vs Erwerbslos_Quote
+boxplot(Erwerbslos_Quote ~ Region, data = zensus_wide,
         col = c("salmon", "steelblue"),
         main = "Unemployment rate by East/West",
         xlab = "Region",
         ylab = "Unemployment rate (%)")
 
-#corr plots multivariate
-library(psych)
+#multivariate methods
+
+#reset graphics device before cor.plot
+dev.off()
 par(mar = c(14, 14, 4, 2))
 
+#correlation plot - shows all candidate variables together
+library(psych)
 cor.plot(zensus_wide[, c("Erwerbslos_Quote", "OhneAbschl_Quote", 
                          "Abitur_Quote", "Erwerbstaetig_Quote",
                          "Nichterwerb_Quote")],
@@ -391,8 +489,36 @@ cor.plot(zensus_wide[, c("Erwerbslos_Quote", "OhneAbschl_Quote",
          cex = 0.8,
          stars = TRUE,
          xlas = 2)
-# xlas = 2 rotates x axis labels vertically
-# increased bottom and left margins to fit the longer names
+
+#multiple linear regression - quantifies influence of all 3 variables simultaneously
+par(mar = c(5, 4, 4, 2))
+model <- lm(Erwerbslos_Quote ~ 
+              Abitur_Quote + 
+              OhneAbschl_Quote + 
+              Erwerbstaetig_Quote,
+            data = zensus_wide)
+summary(model)
+#significant coefficients confirm which variables truly influence unemployment
+#while controlling for the other variables simultaneously
+
+#regression with region interaction
+#checks if east/west differences change the relationships
+model2 <- lm(
+  Erwerbslos_Quote ~ 
+    Abitur_Quote * Region + 
+    OhneAbschl_Quote * Region,
+  data = zensus_wide
+)
+summary(model2)
+
+#conclusion task 7
+#OhneAbschl_Quote is the strongest and most consistent predictor of unemployment
+#Erwerbstaetig_Quote is a significant negative predictor
+#Abitur_Quote is NOT significant when controlling for the other variables
+#the effect of no-certificate rate is significantly stronger in east than west
+#in East Germany the effect of low education on unemployment
+#is twice as strong as in West Germany (0.59 vs 0.30)
+
 
 ##task 8 
 
@@ -402,19 +528,19 @@ library(psych)
 #gives  mean, median, sd, min, max etc.
 
 describeBy(zensus_wide[, 5:13],
-           group = zensus_wide$Ostdeutschland)
+           group = zensus_wide$Region)
 
 #aggregate() calculates  statistic for each group
 #calculate median and sd for each variable split by east/west
 
 #median comparison
 aggregate(zensus_wide[, 5:13],
-          by = list(Region = zensus_wide$Ostdeutschland),
+          by = list(Region = zensus_wide$Region),
           FUN = median)
 
 #standard deviation is from mean // use MAD comparison
 aggregate(zensus_wide[, 5:13],
-          by = list(Region = zensus_wide$Ostdeutschland),
+          by = list(Region = zensus_wide$Region),
           FUN = mad)
 
 #task 8 findings
