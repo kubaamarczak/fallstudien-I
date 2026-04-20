@@ -1,6 +1,7 @@
 # Projekt 4:
 
 ## Termine
+#### 11/06 - 28/06
 - Zwischenpräsentation: Do. 18/06 10:15
 - Bericht: So. 28/06 23:59
 
