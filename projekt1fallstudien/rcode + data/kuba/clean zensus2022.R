@@ -503,8 +503,7 @@ boxplt <- function(variab, variabname) {
       strip.background = element_blank(),
       axis.text.x = element_blank(),
       axis.ticks.x = element_blank(),
-      panel.grid.major.x = element_blank(),
-      panel.grid.minor.x = element_blank()
+      panel.grid = element_blank()
     )
 }
 
@@ -729,7 +728,7 @@ summary(model2)
 
 ## Scatterplots
 ## Ohne-Abschluss-Quote -> Erwerbslosenquote
-ggplot(df2, aes(x = OhneAbschl_Quote, y = Erwerbslos_Quote, color = Ostdeutschland)) +
+ggplot(df2, aes(x = OhneAbschl_Quote, y = Erwerbslos_Quote, color = Region)) +
   geom_point() +
   geom_smooth(method = lm, se = TRUE) +
   labs(
@@ -737,12 +736,12 @@ ggplot(df2, aes(x = OhneAbschl_Quote, y = Erwerbslos_Quote, color = Ostdeutschla
     y = "Erwerbslosenquote (%)",
     color = "Region"
   ) +
-  scale_color_manual(values = c("FALSE" = "#5ac9c7", "TRUE" = "#ec5b5b"),
+  scale_color_manual(values = c("West" = "#5ac9c7", "Ost" = "#ec5b5b"),
                      labels = c("Westdeutschland", "Ostdeutschland")) +
   theme_minimal()
 
 ## Erwerbstätigkeitsquote -> Erwerbslosenquote
-ggplot(df2, aes(x = Erwerbstaetig_Quote, y = Erwerbslos_Quote, color = Ostdeutschland)) +
+ggplot(df2, aes(x = Erwerbstaetig_Quote, y = Erwerbslos_Quote, color = Region)) +
   geom_point() +
   geom_smooth(method = lm, se = TRUE) +
   labs(
@@ -750,12 +749,12 @@ ggplot(df2, aes(x = Erwerbstaetig_Quote, y = Erwerbslos_Quote, color = Ostdeutsc
     y = "Erwerbslosenquote (%)",
     color = "Region"
   ) +
-  scale_color_manual(values = c("FALSE" = "#5ac9c7", "TRUE" = "#ec5b5b"),
+  scale_color_manual(values = c("West" = "#5ac9c7", "Ost" = "#ec5b5b"),
                      labels = c("Westdeutschland", "Ostdeutschland")) +
   theme_minimal()
 
 ## Abiturquote -> Erwerbslosenquote 
-ggplot(df2, aes(x = Abitur_Quote, y = Erwerbslos_Quote, color = Ostdeutschland)) +
+ggplot(df2, aes(x = Abitur_Quote, y = Erwerbslos_Quote, color = Region)) +
   geom_point() +
   geom_smooth(method = lm, se = TRUE) +
   labs(
@@ -763,7 +762,7 @@ ggplot(df2, aes(x = Abitur_Quote, y = Erwerbslos_Quote, color = Ostdeutschland))
     y = "Erwerbslosenquote (%)",
     color = "Region"
   ) +
-  scale_color_manual(values = c("FALSE" = "#5ac9c7", "TRUE" = "#ec5b5b"),
+  scale_color_manual(values = c("West" = "#5ac9c7", "Ost" = "#ec5b5b"),
                      labels = c("Westdeutschland", "Ostdeutschland")) +
   theme_minimal()
 
