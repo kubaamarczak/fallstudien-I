@@ -2,7 +2,7 @@
 
 ## 📅 Zeitplan
 
-👉 [View timeline](https://github.com/users/kubaamarczak/projects/2)
+👉 [Zum Zeitplan](https://github.com/users/kubaamarczak/projects/2)
 
 ## 📁 Projektübersicht
 
