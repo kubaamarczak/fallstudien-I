@@ -1,5 +1,9 @@
 # 📊 Fallstudien I
 
+## 📅 Zeitplan
+
+👉 [Zum Zeitplan](https://github.com/users/kubaamarczak/projects/2)
+
 ## 📁 Projektübersicht
 
 ### 1. 🧠 Projekt I – Deskriptive Analyse von Bildung und Erwerbstätigkeit

@@ -1,0 +1,14 @@
+\frametitle{R Code Beispiel}
+\frametitle{Population verstehen}
+%    \begin{figure}
+%        \centering
+%        \includegraphics[width=1\linewidth]{population.pdf}
+%        \vspace{-0.75cm}
+%        \caption{Kerndichteschätzungen mit Gaußkern für Alter, Größe und Gewicht.}
+%    \end{figure}
+    \begin{lstlisting}
+library(ggplot2)
+ggplot(df, aes(x = age, y = value)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+    \end{lstlisting}
