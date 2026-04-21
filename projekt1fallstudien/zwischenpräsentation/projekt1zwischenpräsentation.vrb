@@ -3,8 +3,8 @@
         \begin{itemize}
             \item Hypothesentests (Unterschied zwischen Ost- und West)
             \begin{itemize}
-                \item Wilcoxon Test
-                \item t-Test
+                \item Wilcoxon Rangsummentest: \texttt{wilcox.test}
+                \item t-Test: \texttt{t.test}
             \end{itemize}
             \item deskriptive Maße
             \begin{itemize}

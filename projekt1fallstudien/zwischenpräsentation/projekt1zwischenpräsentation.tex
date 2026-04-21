@@ -88,12 +88,27 @@
 %        \vspace{-0.75cm}
 %        \caption{Kerndichteschätzungen mit Gaußkern für Alter, Größe und Gewicht.}
 %    \end{figure}
+	\begin{columns}[T]
+	
+	\column{0.5\textwidth}
         \begin{itemize}
-            \item Behandelte Variablen
+            \item Primär behandelte Variablen
+            \item[$\rightarrow$] Erwerbslos\_Quote
+            \item[$\rightarrow$] OhneAbschl\_Quote
+            \item[$\rightarrow$] Erwerbstaetig\_Quote
+            \item[$\rightarrow$] Abitur\_Quote
         \end{itemize}
+        
+        \column{0.5\textwidth}
         \begin{itemize}
             \item Benutzte Methoden
+            \item[$\rightarrow$] Ausreißeranalyse (Boxplots)
+            \item[$\rightarrow$] Multiples Lineares Modell
+            \item[$\rightarrow$] Histogramm und Kerndichteschätzung
+            \item[$\rightarrow$] Scatterplots
+            \item[$\rightarrow$] Hypothesentests
         \end{itemize}
+        \end{columns}
 \end{frame}
 
 % Folie 4 
@@ -101,67 +116,70 @@
     \frametitle{Zentrale Ergebnisse}
     \begin{figure}
         \centering
-        \includegraphics[width=0.5\linewidth]{graphiken/boxplotsoutliers.pdf}
-        \vspace{-0.75cm}
-        \caption{Kerndichteschätzungen mit Gaußkern für Alter, Größe und Gewicht.}
+        \includegraphics[width=0.72\linewidth]{graphiken/boxplotsoutliers.pdf}
+        \caption{Boxplots für einige Variablen aus dem Datensatz.}
     \end{figure}
-    \begin{lstlisting}
-library(ggplot2)
-ggplot(df, aes(x = age, y = value)) +
-  geom_point() +
-  geom_smooth(method = "lm")
-    \end{lstlisting}
 \end{frame}
 
-% Folie 5 
-\begin{frame}[fragile]{R Code Beispiel}
-    \frametitle{Unterschiede zwischen Ost- und Westdeutschland}
-%    \begin{figure}
-%        \centering
-%        \includegraphics[width=1\linewidth]{population.pdf}
-%        \vspace{-0.75cm}
-%        \caption{Kerndichteschätzungen mit Gaußkern für Alter, Größe und Gewicht.}
-%    \end{figure}
-    \begin{lstlisting}
-library(ggplot2)
-ggplot(df, aes(x = age, y = value)) +
-  geom_point() +
-  geom_smooth(method = "lm")
-    \end{lstlisting}
-\end{frame}
-
-% Folie 6 
+% Folie 5
 \begin{frame}[fragile]{R Code Beispiel}
     \frametitle{Prädiktoren für Arbeitslosigkeit}
     
+    \begin{columns}[T]
+
+    \column{0.5\textwidth}
         \begin{itemize}
             \item Multiples Lineares Modell
+            \item[$\rightarrow$] $y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3$
+            \item[$\rightarrow$]{\small y: Erwerbslos, $x_1$: Abitur, \\ $x_2$: OhneAbschl, $x_3$: Erwerbstaetig}
         \end{itemize}
     \begin{lstlisting}
 model <- lm(Erwerbslos_Quote ~               Abitur_Quote +               OhneAbschl_Quote +               Erwerbstaetig_Quote,            data = df2)summary(model)
     \end{lstlisting}
-        \begin{itemize}
-            \item Rechts: Ergebnistabelle
-        \end{itemize}
+
+    \column{0.5\textwidth}
+    \begin{itemize}
+    	\item Wichtigste Erkenntnisse:
+    \end{itemize}
+\begin{lstlisting}
+(Intercept)	      +9.88   ***
+OhneAbschl_Quote      +0.22   ***
+Erwerbstaetig_Quote   -0.11   ***
+Abitur_Quote          +0.01   .
+
+R^2 = 0.34
+p-value: < 2.2e-16
+\end{lstlisting}
+
+    \begin{itemize}
+        \item[$\rightarrow$] $y = 9.88 + 0.22 x_1 - 0.11 x_2 + 0.01 x_3$
+        \item[$\rightarrow$] Ohne Abschluss Quote wichtigster Prädiktor
+    \end{itemize}
+
+    \end{columns}
 \end{frame}
 
-
+% Folie 6
 \begin{frame}[fragile]{R Code Beispiel}
     \frametitle{Prädiktoren für Arbeitslosigkeit}
+    
+    \begin{columns}[T]
+    
+    \column{0.5\textwidth}
     \begin{figure}
         \centering
-        \includegraphics[width=0.2\linewidth]{graphiken/kdeOhneAbschluss.pdf}
-        \vspace{-0.75cm}
-        \caption{Kerndichteschätzungen mit Gaußkern für Alter, Größe und Gewicht.}
+        \includegraphics[width=0.9\linewidth]{graphiken/kdeOhneAbschluss.pdf}
+        \caption{Histogramm der Ohne-Abschluss-Quote mit übergelagerter Kerndichteschätzung.}
     \end{figure}
     
-        \begin{figure}
+    \column{0.5\textwidth}
+    \begin{figure}
         \centering
-        \includegraphics[width=0.2\linewidth]{graphiken/kdeErwerbslos.pdf}
-        \vspace{-0.75cm}
-        \caption{Kerndichteschätzungen mit Gaußkern für Alter, Größe und Gewicht.}
+        \includegraphics[width=0.9\linewidth]{graphiken/kdeErwerbslos.pdf}
+        \caption{Histogramm der Erwerbslosenquote mit übergelagerter Kerndichteschätzung.}
     \end{figure}
-
+    
+    \end{columns}
 \end{frame}
 
 
@@ -169,21 +187,20 @@ model <- lm(Erwerbslos_Quote ~               Abitur_Quote +               Ohne
     \frametitle{Prädiktoren für Arbeitslosigkeit}
     \begin{figure}
         \centering
-        \includegraphics[width=0.5\linewidth]{graphiken/spOhneAbschlussErwerbslos.pdf}
-        \vspace{-0.75cm}
-        \caption{Kerndichteschätzungen mit Gaußkern für Alter, Größe und Gewicht.}
+        \includegraphics[width=0.7\linewidth]{graphiken/spOhneAbschlussErwerbslos.pdf}
+        \caption{Scatterplot zwischen Ohne-Abschluss-Quote und Erwerbslosenquote.}
     \end{figure}
 
 \end{frame}
 
-
+% Folie 7
 \begin{frame}[fragile]{R Code Beispiel}
     \frametitle{Pläne für weitere Analysen}
         \begin{itemize}
             \item Hypothesentests (Unterschied zwischen Ost- und West)
             \begin{itemize}
-                \item Wilcoxon Test
-                \item t-Test
+                \item Wilcoxon Rangsummentest: \texttt{wilcox.test}
+                \item t-Test: \texttt{t.test}
             \end{itemize}
             \item deskriptive Maße
             \begin{itemize}
@@ -193,7 +210,5 @@ model <- lm(Erwerbslos_Quote ~               Abitur_Quote +               Ohne
         \end{itemize}
 
 \end{frame}
-
-
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.12)  21 APR 2026 14:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.12)  21 APR 2026 18:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1346,7 +1346,32 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 ]
 \openout4 = `projekt1zwischenpräsentation.vrb'.
 
- (./projekt1zwischenpräsentation.vrb)
+ (./projekt1zwischenpräsentation.vrb
+LaTeX Font Info:    Trying to load font information for U+msa on input line 14.
+
+
+(/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 14.
+
+
+(/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 14
+.
+
+(/usr/local/texlive/2024/texmf-dist/tex/latex/wasysym/uwasy.fd
+File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
+)
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
+ut line 14.
+
+(/usr/local/texlive/2024/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+))
 Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
@@ -1357,18 +1382,13 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 \openout4 = `projekt1zwischenpräsentation.vrb'.
 
  (./projekt1zwischenpräsentation.vrb
-<graphiken/boxplotsoutliers.pdf, id=58, 498.86375pt x 408.52625pt>
+<graphiken/boxplotsoutliers.pdf, id=59, 722.7pt x 408.52625pt>
 File: graphiken/boxplotsoutliers.pdf Graphic file (type pdf)
 <use graphiken/boxplotsoutliers.pdf>
 Package pdftex.def Info: graphiken/boxplotsoutliers.pdf  used on input line 5.
-(pdftex.def)             Requested size: 217.62448pt x 178.2124pt.
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 9
-.
-
-(/usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-))
-Overfull \vbox (36.28976pt too high) detected at line 114
+(pdftex.def)             Requested size: 313.37978pt x 177.14645pt.
+)
+Overfull \vbox (3.01291pt too high) detected at line 122
  []
 
 
@@ -1381,7 +1401,13 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
  <./graphiken/boxplotsoutliers.pdf>]
 \openout4 = `projekt1zwischenpräsentation.vrb'.
 
- (./projekt1zwischenpräsentation.vrb)
+ (./projekt1zwischenpräsentation.vrb
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
+2.
+
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+))
 Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
@@ -1391,51 +1417,45 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 ]
 \openout4 = `projekt1zwischenpräsentation.vrb'.
 
- (./projekt1zwischenpräsentation.vrb)
+ (./projekt1zwischenpräsentation.vrb
+<graphiken/kdeOhneAbschluss.pdf, id=88, 498.86375pt x 408.52625pt>
+File: graphiken/kdeOhneAbschluss.pdf Graphic file (type pdf)
+<use graphiken/kdeOhneAbschluss.pdf>
+Package pdftex.def Info: graphiken/kdeOhneAbschluss.pdf  used on input line 9.
+(pdftex.def)             Requested size: 195.8607pt x 160.39053pt.
+<graphiken/kdeErwerbslos.pdf, id=89, 498.86375pt x 408.52625pt>
+File: graphiken/kdeErwerbslos.pdf Graphic file (type pdf)
+<use graphiken/kdeErwerbslos.pdf>
+Package pdftex.def Info: graphiken/kdeErwerbslos.pdf  used on input line 16.
+(pdftex.def)             Requested size: 195.8607pt x 160.39053pt.
+)
+Overfull \vbox (2.81363pt too high) detected at line 189
+ []
+
+
 Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
 
 [6
 
-]
+ <./graphiken/kdeOhneAbschluss.pdf> <./graphiken/kdeErwerbslos.pdf>]
 \openout4 = `projekt1zwischenpräsentation.vrb'.
 
- (./projekt1zwischenpräsentation.vrb
-<graphiken/kdeOhneAbschluss.pdf, id=89, 498.86375pt x 408.52625pt>
-File: graphiken/kdeOhneAbschluss.pdf Graphic file (type pdf)
-<use graphiken/kdeOhneAbschluss.pdf>
-Package pdftex.def Info: graphiken/kdeOhneAbschluss.pdf  used on input line 5.
-(pdftex.def)             Requested size: 87.04846pt x 71.28122pt.
-<graphiken/kdeErwerbslos.pdf, id=90, 498.86375pt x 408.52625pt>
-File: graphiken/kdeErwerbslos.pdf Graphic file (type pdf)
-<use graphiken/kdeErwerbslos.pdf>
-Package pdftex.def Info: graphiken/kdeErwerbslos.pdf  used on input line 12.
-(pdftex.def)             Requested size: 87.04846pt x 71.28122pt.
+
+(./projekt1zwischenpräsentation.vrb
+<graphiken/spOhneAbschlussErwerbslos.pdf, id=114, 722.7pt x 408.52625pt>
+File: graphiken/spOhneAbschlussErwerbslos.pdf Graphic file (type pdf)
+<use graphiken/spOhneAbschlussErwerbslos.pdf>
+Package pdftex.def Info: graphiken/spOhneAbschlussErwerbslos.pdf  used on input
+ line 5.
+(pdftex.def)             Requested size: 304.67294pt x 172.22191pt.
 )
 Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
 
 [7
-
- <./graphiken/kdeOhneAbschluss.pdf> <./graphiken/kdeErwerbslos.pdf>]
-\openout4 = `projekt1zwischenpräsentation.vrb'.
-
-
-(./projekt1zwischenpräsentation.vrb
-<graphiken/spOhneAbschlussErwerbslos.pdf, id=116, 498.86375pt x 408.52625pt>
-File: graphiken/spOhneAbschlussErwerbslos.pdf Graphic file (type pdf)
-<use graphiken/spOhneAbschlussErwerbslos.pdf>
-Package pdftex.def Info: graphiken/spOhneAbschlussErwerbslos.pdf  used on input
- line 5.
-(pdftex.def)             Requested size: 217.62448pt x 178.2124pt.
-)
-Overfull \hbox (8.53189pt too wide) has occurred while \output is active
-[] 
- []
-
-[8
 
  <./graphiken/spOhneAbschlussErwerbslos.pdf>]
 \openout4 = `projekt1zwischenpräsentation.vrb'.
@@ -1446,7 +1466,7 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
 
-[9
+[8
 
 ]
 \tf@nav=\write7
@@ -1472,22 +1492,29 @@ l'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36195 strings out of 474116
- 701980 string characters out of 5743682
- 1966187 words of memory out of 5000000
- 57922 multiletter control sequences out of 15000+600000
- 563622 words of font info for 45 fonts, out of 8000000 for 9000
+ 36313 strings out of 474116
+ 704593 string characters out of 5743682
+ 2008187 words of memory out of 5000000
+ 58009 multiletter control sequences out of 15000+600000
+ 572884 words of font info for 78 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  128i,15n,123p,703b,2369s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb>
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb></
-usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></us
-r/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/
-local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb>
-Output written on projekt1zwischenpräsentation.pdf (9 pages, 151361 bytes).
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb>
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb>
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb><
+/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
+usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></us
+r/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/
+local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss0700.pfb></usr/lo
+cal/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/loca
+l/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/
+texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/te
+xlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb>
+Output written on projekt1zwischenpräsentation.pdf (8 pages, 213801 bytes).
 PDF statistics:
- 170 PDF objects out of 1000 (max. 8388607)
- 108 compressed objects within 2 object streams
- 19 named destinations out of 1000 (max. 500000)
+ 196 PDF objects out of 1000 (max. 8388607)
+ 123 compressed objects within 2 object streams
+ 17 named destinations out of 1000 (max. 500000)
  111 words of extra memory for PDF output out of 10000 (max. 10000000)
 

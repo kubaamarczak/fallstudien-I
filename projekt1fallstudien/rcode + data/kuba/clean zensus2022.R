@@ -387,50 +387,55 @@ df2[OL_Nichterwerb_Quote, c("Name", "Region", "Nichterwerb_Quote")]
 
 ## West- und Ostdeutschland
 library(ggplot2)
-ol1 <- ggplot(df2, aes(x = Region, y = Abitur_Quote)) +
+ol1 <- ggplot(df2, aes(x = Region, y = Abitur_Quote, fill = Region)) +
   geom_boxplot() +
   labs(
     x = "Region Deutschlands",
     y = "Abiturquote (%)"
   ) +
   theme_minimal() +
-  theme(panel.grid = element_blank())
+  theme(panel.grid = element_blank(),
+        legend.position = "none")
 
-ol2 <- ggplot(df2, aes(x = Region, y = OhneAbschl_Quote)) +
+ol2 <- ggplot(df2, aes(x = Region, y = OhneAbschl_Quote, fill = Region)) +
   geom_boxplot() +
   labs(
     x = "Region Deutschlands",
     y = "Ohne-Abschluss-Quote (%)"
   ) +
   theme_minimal() +
-  theme(panel.grid = element_blank())
+  theme(panel.grid = element_blank(),
+        legend.position = "none")
 
-ol3 <- ggplot(df2, aes(x = Region, y = Erwerbstaetig_Quote)) +
+ol3 <- ggplot(df2, aes(x = Region, y = Erwerbstaetig_Quote, fill = Region)) +
   geom_boxplot() +
   labs(
     x = "Region Deutschlands",
     y = "Erwerbstätigkeitsquote (%)"
   ) +
   theme_minimal() +
-  theme(panel.grid = element_blank())
+  theme(panel.grid = element_blank(),
+        legend.position = "none")
 
-ol4 <- ggplot(df2, aes(x = Region, y = Erwerbslos_Quote)) +
+ol4 <- ggplot(df2, aes(x = Region, y = Erwerbslos_Quote, fill = Region)) +
   geom_boxplot() +
   labs(
     x = "Region Deutschlands",
     y = "Erwerbslosigkeitsquote (%)"
   ) +
   theme_minimal() +
-  theme(panel.grid = element_blank())
+  theme(panel.grid = element_blank(),
+        legend.position = "none")
 
-ol5 <- ggplot(df2, aes(x = Region, y = Nichterwerb_Quote)) +
+ol5 <- ggplot(df2, aes(x = Region, y = Nichterwerb_Quote, fill = Region)) +
   geom_boxplot() +
   labs(
     x = "Region Deutschlands",
     y = "Nichterwerbsquote (%)"
   ) +
   theme_minimal() +
-  theme(panel.grid = element_blank())
+  theme(panel.grid = element_blank(),
+        legend.position = "none")
 
 library(patchwork)
 (ol1 + ol2 + ol3) /
@@ -738,7 +743,10 @@ ggplot(df2, aes(x = OhneAbschl_Quote, y = Erwerbslos_Quote, color = Region)) +
   ) +
   scale_color_manual(values = c("West" = "#5ac9c7", "Ost" = "#ec5b5b"),
                      labels = c("Westdeutschland", "Ostdeutschland")) +
-  theme_minimal()
+  theme_minimal() +
+  theme(
+    
+  )
 
 ## Erwerbstätigkeitsquote -> Erwerbslosenquote
 ggplot(df2, aes(x = Erwerbstaetig_Quote, y = Erwerbslos_Quote, color = Region)) +
