@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.12)  21 APR 2026 18:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.12)  22 APR 2026 13:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1378,25 +1378,23 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 
 [3
 
+] [4
+
 ]
 \openout4 = `projekt1zwischenpräsentation.vrb'.
 
  (./projekt1zwischenpräsentation.vrb
-<graphiken/boxplotsoutliers.pdf, id=59, 722.7pt x 408.52625pt>
+<graphiken/boxplotsoutliers.pdf, id=70, 722.7pt x 408.52625pt>
 File: graphiken/boxplotsoutliers.pdf Graphic file (type pdf)
 <use graphiken/boxplotsoutliers.pdf>
-Package pdftex.def Info: graphiken/boxplotsoutliers.pdf  used on input line 5.
-(pdftex.def)             Requested size: 313.37978pt x 177.14645pt.
+Package pdftex.def Info: graphiken/boxplotsoutliers.pdf  used on input line 9.
+(pdftex.def)             Requested size: 297.70982pt x 168.28851pt.
 )
-Overfull \vbox (3.01291pt too high) detected at line 122
- []
-
-
 Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
 
-[4
+[5
 
  <./graphiken/boxplotsoutliers.pdf>]
 \openout4 = `projekt1zwischenpräsentation.vrb'.
@@ -1412,24 +1410,24 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
 
-[5
+[6
 
 ]
 \openout4 = `projekt1zwischenpräsentation.vrb'.
 
  (./projekt1zwischenpräsentation.vrb
-<graphiken/kdeOhneAbschluss.pdf, id=88, 498.86375pt x 408.52625pt>
+<graphiken/kdeOhneAbschluss.pdf, id=100, 433.62pt x 505.89pt>
 File: graphiken/kdeOhneAbschluss.pdf Graphic file (type pdf)
 <use graphiken/kdeOhneAbschluss.pdf>
 Package pdftex.def Info: graphiken/kdeOhneAbschluss.pdf  used on input line 9.
-(pdftex.def)             Requested size: 195.8607pt x 160.39053pt.
-<graphiken/kdeErwerbslos.pdf, id=89, 498.86375pt x 408.52625pt>
+(pdftex.def)             Requested size: 140.15231pt x 163.50914pt.
+<graphiken/kdeErwerbslos.pdf, id=101, 433.62pt x 505.89pt>
 File: graphiken/kdeErwerbslos.pdf Graphic file (type pdf)
 <use graphiken/kdeErwerbslos.pdf>
-Package pdftex.def Info: graphiken/kdeErwerbslos.pdf  used on input line 16.
-(pdftex.def)             Requested size: 195.8607pt x 160.39053pt.
+Package pdftex.def Info: graphiken/kdeErwerbslos.pdf  used on input line 17.
+(pdftex.def)             Requested size: 140.15231pt x 163.50914pt.
 )
-Overfull \vbox (2.81363pt too high) detected at line 189
+Overfull \vbox (0.3756pt too high) detected at line 217
  []
 
 
@@ -1437,25 +1435,29 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
 
-[6
+[7
 
  <./graphiken/kdeOhneAbschluss.pdf> <./graphiken/kdeErwerbslos.pdf>]
 \openout4 = `projekt1zwischenpräsentation.vrb'.
 
 
 (./projekt1zwischenpräsentation.vrb
-<graphiken/spOhneAbschlussErwerbslos.pdf, id=114, 722.7pt x 408.52625pt>
+<graphiken/spOhneAbschlussErwerbslos.pdf, id=129, 722.7pt x 408.52625pt>
 File: graphiken/spOhneAbschlussErwerbslos.pdf Graphic file (type pdf)
 <use graphiken/spOhneAbschlussErwerbslos.pdf>
 Package pdftex.def Info: graphiken/spOhneAbschlussErwerbslos.pdf  used on input
- line 5.
-(pdftex.def)             Requested size: 304.67294pt x 172.22191pt.
+ line 8.
+(pdftex.def)             Requested size: 289.43835pt x 163.61331pt.
 )
+Overfull \vbox (0.47977pt too high) detected at line 239
+ []
+
+
 Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
 
-[7
+[8
 
  <./graphiken/spOhneAbschlussErwerbslos.pdf>]
 \openout4 = `projekt1zwischenpräsentation.vrb'.
@@ -1466,7 +1468,7 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
 
-[8
+[9
 
 ]
 \tf@nav=\write7
@@ -1485,18 +1487,18 @@ L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `projekt1zwischenpräsentation.out' has not 
 changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+(rerunfilecheck)             Checksum: 606BBD0D8140A05B5A78F0635B72EB55;141.
 Package logreq Info: Writing requests to 'projekt1zwischenpräsentation.run.xm
 l'.
 \openout1 = `projekt1zwischenpräsentation.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36313 strings out of 474116
- 704593 string characters out of 5743682
- 2008187 words of memory out of 5000000
- 58009 multiletter control sequences out of 15000+600000
- 572884 words of font info for 78 fonts, out of 8000000 for 9000
+ 36333 strings out of 474116
+ 704883 string characters out of 5743682
+ 2009187 words of memory out of 5000000
+ 58021 multiletter control sequences out of 15000+600000
+ 573655 words of font info for 79 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  128i,15n,123p,703b,2369s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
@@ -1510,11 +1512,12 @@ local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss0700.pfb></usr/lo
 cal/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/loca
 l/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/
 texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/te
-xlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb>
-Output written on projekt1zwischenpräsentation.pdf (8 pages, 213801 bytes).
+xlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss2488.pfb></usr/local/texl
+ive/2024/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb>
+Output written on projekt1zwischenpräsentation.pdf (9 pages, 223456 bytes).
 PDF statistics:
- 196 PDF objects out of 1000 (max. 8388607)
- 123 compressed objects within 2 object streams
- 17 named destinations out of 1000 (max. 500000)
- 111 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 217 PDF objects out of 1000 (max. 8388607)
+ 140 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
+ 119 words of extra memory for PDF output out of 10000 (max. 10000000)
 
