@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.12)  22 APR 2026 13:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.12)  22 APR 2026 14:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1427,7 +1427,7 @@ File: graphiken/kdeErwerbslos.pdf Graphic file (type pdf)
 Package pdftex.def Info: graphiken/kdeErwerbslos.pdf  used on input line 17.
 (pdftex.def)             Requested size: 140.15231pt x 163.50914pt.
 )
-Overfull \vbox (0.3756pt too high) detected at line 218
+Overfull \vbox (0.3756pt too high) detected at line 221
  []
 
 
@@ -1449,7 +1449,7 @@ Package pdftex.def Info: graphiken/spOhneAbschlussErwerbslos.pdf  used on input
  line 8.
 (pdftex.def)             Requested size: 289.43835pt x 163.61331pt.
 )
-Overfull \vbox (0.47977pt too high) detected at line 240
+Overfull \vbox (0.47977pt too high) detected at line 243
  []
 
 
@@ -1496,7 +1496,7 @@ l'.
 Here is how much of TeX's memory you used:
  36333 strings out of 474116
  704883 string characters out of 5743682
- 2008187 words of memory out of 5000000
+ 2009187 words of memory out of 5000000
  58021 multiletter control sequences out of 15000+600000
  573655 words of font info for 79 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
@@ -1514,7 +1514,7 @@ l/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/
 texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/te
 xlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss2488.pfb></usr/local/texl
 ive/2024/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb>
-Output written on projekt1zwischenpräsentation.pdf (9 pages, 223672 bytes).
+Output written on projekt1zwischenpräsentation.pdf (9 pages, 224206 bytes).
 PDF statistics:
  217 PDF objects out of 1000 (max. 8388607)
  140 compressed objects within 2 object streams
