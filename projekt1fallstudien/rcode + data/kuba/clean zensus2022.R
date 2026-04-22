@@ -295,6 +295,8 @@ df2 <- df2 %>%
 
 print(df2, width = Inf)
 
+df2 %>% filter(Name == "München")
+
 ## Kategorisch
 ## ARS, Name, Bundesland, Region (davor: Ostdeutschland)
 ## Metrisch
@@ -390,56 +392,99 @@ library(ggplot2)
 ol1 <- ggplot(df2, aes(x = Region, y = Abitur_Quote, fill = Region)) +
   geom_boxplot() +
   labs(
-    x = "Region Deutschlands",
+    x = "",
     y = "Abiturquote (%)"
   ) +
   theme_minimal() +
-  theme(panel.grid = element_blank(),
-        legend.position = "none")
+  scale_fill_manual(values = c("West" = "#0072B2","Ost" = "#D55E00")) +
+  theme(
+    text = element_text(size=14),
+    legend.text = element_text(size=14),
+    panel.grid = element_blank(),
+    axis.text.x = element_blank(),
+    axis.line.y = element_line(color = "black"),
+    axis.ticks.y = element_line(color = "black"),
+    axis.line.x = element_line(color = "black")
+    )
 
 ol2 <- ggplot(df2, aes(x = Region, y = OhneAbschl_Quote, fill = Region)) +
   geom_boxplot() +
   labs(
-    x = "Region Deutschlands",
+    x = "",
     y = "Ohne-Abschluss-Quote (%)"
   ) +
   theme_minimal() +
-  theme(panel.grid = element_blank(),
-        legend.position = "none")
+  scale_fill_manual(values = c("West" = "#0072B2","Ost" = "#D55E00")) +
+  theme(
+    text = element_text(size=14),
+    legend.text = element_text(size=14),
+    panel.grid = element_blank(),
+    axis.text.x = element_blank(),
+    axis.line.y = element_line(color = "black"),
+    axis.ticks.y = element_line(color = "black"),
+    axis.line.x = element_line(color = "black")
+    )
 
 ol3 <- ggplot(df2, aes(x = Region, y = Erwerbstaetig_Quote, fill = Region)) +
   geom_boxplot() +
   labs(
-    x = "Region Deutschlands",
+    x = "",
     y = "Erwerbstätigkeitsquote (%)"
   ) +
   theme_minimal() +
-  theme(panel.grid = element_blank(),
-        legend.position = "none")
+  scale_fill_manual(values = c("West" = "#0072B2","Ost" = "#D55E00")) +
+  theme(    
+    text = element_text(size=14),
+    legend.text = element_text(size=14),
+    panel.grid = element_blank(),
+    axis.text.x = element_blank(),
+    axis.line.y = element_line(color = "black"),
+    axis.ticks.y = element_line(color = "black"),
+    axis.line.x = element_line(color = "black")
+    )
 
 ol4 <- ggplot(df2, aes(x = Region, y = Erwerbslos_Quote, fill = Region)) +
   geom_boxplot() +
   labs(
-    x = "Region Deutschlands",
+    x = "",
     y = "Erwerbslosigkeitsquote (%)"
   ) +
   theme_minimal() +
-  theme(panel.grid = element_blank(),
-        legend.position = "none")
+  scale_fill_manual(values = c("West" = "#0072B2","Ost" = "#D55E00")) +
+  theme(
+    text = element_text(size=14),
+    legend.text = element_text(size=14),
+    panel.grid = element_blank(),
+    axis.text.x = element_blank(),
+    axis.line.y = element_line(color = "black"),
+    axis.ticks.y = element_line(color = "black"),
+    axis.line.x = element_line(color = "black")
+    )
 
 ol5 <- ggplot(df2, aes(x = Region, y = Nichterwerb_Quote, fill = Region)) +
   geom_boxplot() +
   labs(
-    x = "Region Deutschlands",
+    x = "",
     y = "Nichterwerbsquote (%)"
   ) +
   theme_minimal() +
-  theme(panel.grid = element_blank(),
-        legend.position = "none")
+  scale_fill_manual(values = c("West" = "#0072B2","Ost" = "#D55E00")) +
+  theme(
+    text = element_text(size=14),
+    legend.text = element_text(size=14),
+    panel.grid = element_blank(),
+    axis.text.x = element_blank(),
+    axis.line.y = element_line(color = "black"),
+    axis.ticks.y = element_line(color = "black"),
+    axis.line.x = element_line(color = "black")
+    )
 
 library(patchwork)
-(ol1 + ol2 + ol3) /
-  (ol4 + ol5)
+  (ol1 + ol2) /
+(ol3 + ol4 + ol5) +
+plot_layout(guides = "collect") &
+theme(legend.position = "right",
+      legend.text = element_text(size=14))
 
 ## Welche Städte / Kreise sind die Ausreißer?
 df2_west <- df2 %>%
@@ -504,6 +549,8 @@ boxplt <- function(variab, variabname) {
                strip.position = "bottom") +
     theme_minimal() + 
     theme(
+      text = element_text(size=16),
+      legend.text = element_text(size=14),
       strip.placement = "outside",
       strip.background = element_blank(),
       axis.text.x = element_blank(),
@@ -537,10 +584,12 @@ histogramkde <- function(variab, variabname) {
     ) +
     facet_wrap(~ Region,
                strip.position = "bottom") +
-    scale_fill_manual(values = c("West" = "#5ac9c7", "Ost" = "#ec5b5b")) +
-    scale_color_manual(values = c("West" = "#3f8d8b", "Ost" = "#a54040")) +
+    scale_fill_manual(values = c("West" = "#0072B2", "Ost" = "#D55E00")) +
+    scale_color_manual(values = c("West" = "#00507d", "Ost" = "#954200")) +
     theme_minimal() + 
     theme(
+      text = element_text(size=16),
+      legend.text = element_text(size=14),
       strip.placement = "outside",
       strip.background = element_blank(),
       panel.grid = element_blank(),
@@ -735,17 +784,18 @@ summary(model2)
 ## Ohne-Abschluss-Quote -> Erwerbslosenquote
 ggplot(df2, aes(x = OhneAbschl_Quote, y = Erwerbslos_Quote, color = Region)) +
   geom_point() +
-  geom_smooth(method = lm, se = TRUE) +
+  geom_smooth(method = lm, se = TRUE, alpha = 0.15) +
   labs(
     x = "Ohne-Abschluss-Quote (%)",
     y = "Erwerbslosenquote (%)",
     color = "Region"
   ) +
-  scale_color_manual(values = c("West" = "#5ac9c7", "Ost" = "#ec5b5b"),
+  scale_color_manual(values = c("West" = "#0072B2", "Ost" = "#D55E00"),
                      labels = c("Westdeutschland", "Ostdeutschland")) +
   theme_minimal() +
   theme(
-    
+    text = element_text(size=16),
+    legend.text = element_text(size=14)
   )
 
 ## Erwerbstätigkeitsquote -> Erwerbslosenquote
@@ -757,7 +807,7 @@ ggplot(df2, aes(x = Erwerbstaetig_Quote, y = Erwerbslos_Quote, color = Region)) 
     y = "Erwerbslosenquote (%)",
     color = "Region"
   ) +
-  scale_color_manual(values = c("West" = "#5ac9c7", "Ost" = "#ec5b5b"),
+  scale_color_manual(values = c("West" = "#0072B2", "Ost" = "#D55E00"),
                      labels = c("Westdeutschland", "Ostdeutschland")) +
   theme_minimal()
 
@@ -770,7 +820,7 @@ ggplot(df2, aes(x = Abitur_Quote, y = Erwerbslos_Quote, color = Region)) +
     y = "Erwerbslosenquote (%)",
     color = "Region"
   ) +
-  scale_color_manual(values = c("West" = "#5ac9c7", "Ost" = "#ec5b5b"),
+  scale_color_manual(values = c("West" = "#0072B2", "Ost" = "#D55E00"),
                      labels = c("Westdeutschland", "Ostdeutschland")) +
   theme_minimal()
 
