@@ -588,8 +588,8 @@ histogramkde <- function(variab, variabname) {
     scale_color_manual(values = c("West" = "#00507d", "Ost" = "#954200")) +
     theme_minimal() + 
     theme(
-      text = element_text(size=16),
-      legend.text = element_text(size=14),
+      text = element_text(size=20),
+      legend.text = element_text(size=16),
       strip.placement = "outside",
       strip.background = element_blank(),
       panel.grid = element_blank(),

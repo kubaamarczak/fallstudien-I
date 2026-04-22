@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.12)  22 APR 2026 13:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.12)  22 APR 2026 13:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1140,24 +1140,24 @@ Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
 (./projekt1zwischenpräsentation.aux)
 \openout1 = `projekt1zwischenpräsentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1215,69 +1215,69 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 63.
+Package hyperref Info: Link coloring OFF on input line 64.
 
 (./projekt1zwischenpräsentation.out) (./projekt1zwischenpräsentation.out)
 \@outlinefile=\write6
 \openout6 = `projekt1zwischenpräsentation.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 63.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 64.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 63.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 64.
 \symnumbers=\mathgroup7
 \sympureletters=\mathgroup8
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 63.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 63.
+(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 64.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 63.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 63.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 63.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 64.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 63.
+(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 63.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 63.
+(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 64.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 63.
+(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 63.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 63.
+(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 64.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 63.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 63.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 64.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 63.
+(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 64.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 63.
+(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> T1/cmr/b/n on input line 63.
+(Font)                  OT1/cmss/b/n --> T1/cmr/b/n on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/cmss/b/n --> T1/cmss/b/n on input line 63.
+(Font)                  T1/cmss/b/n --> T1/cmss/b/n on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 63.
+(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 63.
+(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 63.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 63.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 64.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 64.
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `normal' on input line 63
+(Font)              `pureletters' in the math version `normal' on input line 64
 .
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 63
+(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 64
 .
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `bold' on input line 63.
+(Font)              `pureletters' in the math version `bold' on input line 64.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 63
+(Font)                  T1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 64
 .
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 63.
+ut line 64.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/translator/translator-basic-dicti
 onary-English.dict
@@ -1330,8 +1330,8 @@ Package biblatex Info: ... file 'projekt1zwischenpräsentation.bbl' not found.
 
 
 No file projekt1zwischenpräsentation.bbl.
-Package biblatex Info: Reference section=0 on input line 63.
-Package biblatex Info: Reference segment=0 on input line 63.
+Package biblatex Info: Reference section=0 on input line 64.
+Package biblatex Info: Reference segment=0 on input line 64.
 \c@lstlisting=\count495
 (./projekt1zwischenpräsentation.nav) [1
 
@@ -1427,7 +1427,7 @@ File: graphiken/kdeErwerbslos.pdf Graphic file (type pdf)
 Package pdftex.def Info: graphiken/kdeErwerbslos.pdf  used on input line 17.
 (pdftex.def)             Requested size: 140.15231pt x 163.50914pt.
 )
-Overfull \vbox (0.3756pt too high) detected at line 217
+Overfull \vbox (0.3756pt too high) detected at line 218
  []
 
 
@@ -1449,7 +1449,7 @@ Package pdftex.def Info: graphiken/spOhneAbschlussErwerbslos.pdf  used on input
  line 8.
 (pdftex.def)             Requested size: 289.43835pt x 163.61331pt.
 )
-Overfull \vbox (0.47977pt too high) detected at line 239
+Overfull \vbox (0.47977pt too high) detected at line 240
  []
 
 
@@ -1496,7 +1496,7 @@ l'.
 Here is how much of TeX's memory you used:
  36333 strings out of 474116
  704883 string characters out of 5743682
- 2009187 words of memory out of 5000000
+ 2008187 words of memory out of 5000000
  58021 multiletter control sequences out of 15000+600000
  573655 words of font info for 79 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
@@ -1514,7 +1514,7 @@ l/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/
 texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/te
 xlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss2488.pfb></usr/local/texl
 ive/2024/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb>
-Output written on projekt1zwischenpräsentation.pdf (9 pages, 223456 bytes).
+Output written on projekt1zwischenpräsentation.pdf (9 pages, 223672 bytes).
 PDF statistics:
  217 PDF objects out of 1000 (max. 8388607)
  140 compressed objects within 2 object streams
