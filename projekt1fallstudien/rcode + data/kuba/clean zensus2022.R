@@ -621,6 +621,13 @@ ggpairs(
   aes(color = Region, alpha = 0.6)
 )
 
+ggpairs(
+  df2,
+  columns = c("OhneAbschl_Quote", "Abitur_Quote", "Erwerbstaetig_Quote", "Erwerbslos_Quote"),
+  columnLabels = c("Ohne-Abschluss-Quote (%)", "Abiturquote (%)", "Erwerbstätigkeitsquote (%)", "Erwerbslosigkeitsquote (%)"),
+  aes(color = Region, alpha = 0.6)
+)
+
 ## Erste mögliche Zusamenhänge:
 ## I.
 ## Ohne Abschluss <-> Erwerbstätigkeit
