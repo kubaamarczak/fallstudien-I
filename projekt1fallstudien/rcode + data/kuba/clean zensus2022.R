@@ -271,11 +271,14 @@ print(colnames(zensus_wide))
 ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## Daten laden
 library(readr)
+library(tikzDevice)
 
 df <- read_csv("/Users/jakubmarczak/Downloads/Project1_data/zensus2022_long.csv")
 df2 <- read_csv("/Users/jakubmarczak/Downloads/Project1_data/zensus2022_wide.csv")
 
 ## 1. Datenaufbereitung
+## ⚠️⚠️ IM BERICHT BESCHRIEBEN -------------------------------------------------
+##------------------------------------------------------------------------------
 ## Der Datensatz ist hinreichend bereinigt. Das einzige, was geändert wurde 
 ## ist die Variable 'Ostdeutschland', welche durch den Faktor 'Region' ersetzt
 ## wurde und die Werte Ost (1) und West (0) annehmen kann. Das macht es später 
@@ -295,7 +298,8 @@ df2 <- df2 %>%
 
 print(df2, width = Inf)
 
-df2 %>% filter(Name == "München")
+## df2 %>% filter(Name == "Unna")
+## df2 %>% filter(Name == "München")
 
 ## Kategorisch
 ## ARS, Name, Bundesland, Region (davor: Ostdeutschland)
@@ -303,6 +307,8 @@ df2 %>% filter(Name == "München")
 ## Bev_Tausend, Abitur_Quote, OhneAbschl_Quote, Abitur_GenderGap, 
 ## Erwerbstaetig_Quote, Erwerbslos_Quote, Erwerbstaetig_GenderGap,
 ## Erwerbslos_GenderGap
+##⚠️⚠️--------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 
 ## 2. Ausreißeranalyse
 library(ggplot2)
@@ -388,103 +394,127 @@ OL_Nichterwerb_Quote <- find_outliers(df2$Nichterwerb_Quote)
 df2[OL_Nichterwerb_Quote, c("Name", "Region", "Nichterwerb_Quote")]
 
 ## West- und Ostdeutschland
+## ⚠️⚠️ IM BERICHT -------------------------------------------------------------
+##------------------------------------------------------------------------------
+tikz("boxplots.tex", width=5, height=3)
+
 library(ggplot2)
 ol1 <- ggplot(df2, aes(x = Region, y = Abitur_Quote, fill = Region)) +
   geom_boxplot() +
   labs(
     x = "",
-    y = "Abiturquote (%)"
+    y = "A-Quote (\\%)"
   ) +
   theme_minimal() +
   scale_fill_manual(values = c("West" = "#0072B2","Ost" = "#D55E00")) +
   theme(
-    text = element_text(size=14),
-    legend.text = element_text(size=14),
+    text = element_text(size=9),
+    legend.text = element_text(size=8),
+    legend.title = element_text(size=10),
+    axis.text = element_text(size=7),
     panel.grid = element_blank(),
     axis.text.x = element_blank(),
     axis.line.y = element_line(color = "black"),
     axis.ticks.y = element_line(color = "black"),
-    axis.line.x = element_line(color = "black")
+    axis.line.x = element_line(color = "black"),
+    axis.title.y = element_text(margin = margin(r = 8))
     )
 
 ol2 <- ggplot(df2, aes(x = Region, y = OhneAbschl_Quote, fill = Region)) +
   geom_boxplot() +
   labs(
     x = "",
-    y = "Ohne-Abschluss-Quote (%)"
+    y = "OA-Quote (\\%)"
   ) +
   theme_minimal() +
   scale_fill_manual(values = c("West" = "#0072B2","Ost" = "#D55E00")) +
   theme(
-    text = element_text(size=14),
-    legend.text = element_text(size=14),
+    text = element_text(size=9),
+    legend.text = element_text(size=8),
+    legend.title = element_text(size=10),
+    axis.text = element_text(size=7),
     panel.grid = element_blank(),
     axis.text.x = element_blank(),
     axis.line.y = element_line(color = "black"),
     axis.ticks.y = element_line(color = "black"),
-    axis.line.x = element_line(color = "black")
+    axis.line.x = element_line(color = "black"),
+    axis.title.y = element_text(margin = margin(r = 8))
     )
 
 ol3 <- ggplot(df2, aes(x = Region, y = Erwerbstaetig_Quote, fill = Region)) +
   geom_boxplot() +
   labs(
     x = "",
-    y = "Erwerbstätigkeitsquote (%)"
+    y = "ET-Quote (\\%)"
   ) +
   theme_minimal() +
   scale_fill_manual(values = c("West" = "#0072B2","Ost" = "#D55E00")) +
   theme(    
-    text = element_text(size=14),
-    legend.text = element_text(size=14),
+    text = element_text(size=9),
+    legend.text = element_text(size=8),
+    legend.title = element_text(size=10),
+    axis.text = element_text(size=7),
     panel.grid = element_blank(),
     axis.text.x = element_blank(),
     axis.line.y = element_line(color = "black"),
     axis.ticks.y = element_line(color = "black"),
-    axis.line.x = element_line(color = "black")
+    axis.line.x = element_line(color = "black"),
+    axis.title.y = element_text(margin = margin(r = 8))
     )
 
 ol4 <- ggplot(df2, aes(x = Region, y = Erwerbslos_Quote, fill = Region)) +
   geom_boxplot() +
   labs(
     x = "",
-    y = "Erwerbslosigkeitsquote (%)"
+    y = "EL-Quote (\\%)"
   ) +
   theme_minimal() +
   scale_fill_manual(values = c("West" = "#0072B2","Ost" = "#D55E00")) +
   theme(
-    text = element_text(size=14),
-    legend.text = element_text(size=14),
+    text = element_text(size=9),
+    legend.text = element_text(size=8),
+    legend.title = element_text(size=10),
+    axis.text = element_text(size=7),
     panel.grid = element_blank(),
     axis.text.x = element_blank(),
     axis.line.y = element_line(color = "black"),
     axis.ticks.y = element_line(color = "black"),
-    axis.line.x = element_line(color = "black")
+    axis.line.x = element_line(color = "black"),
+    axis.title.y = element_text(margin = margin(r = 8))
     )
 
 ol5 <- ggplot(df2, aes(x = Region, y = Nichterwerb_Quote, fill = Region)) +
   geom_boxplot() +
   labs(
     x = "",
-    y = "Nichterwerbsquote (%)"
+    y = "Nichterwerbsquote (\\%)"
   ) +
   theme_minimal() +
   scale_fill_manual(values = c("West" = "#0072B2","Ost" = "#D55E00")) +
   theme(
-    text = element_text(size=14),
-    legend.text = element_text(size=14),
+    text = element_text(size=9),
+    legend.text = element_text(size=8),
+    legend.title = element_text(size=10),
+    axis.text = element_text(size=7),
     panel.grid = element_blank(),
     axis.text.x = element_blank(),
     axis.line.y = element_line(color = "black"),
     axis.ticks.y = element_line(color = "black"),
-    axis.line.x = element_line(color = "black")
+    axis.line.x = element_line(color = "black"),
+    axis.title.y = element_text(margin = margin(r = 8))
     )
 
 library(patchwork)
-  (ol1 + ol2) /
-(ol3 + ol4 + ol5) +
+(ol4 + ol2) /
+(ol3 + ol1) +
 plot_layout(guides = "collect") &
-theme(legend.position = "right",
-      legend.text = element_text(size=14))
+theme(legend.position = "top",
+      legend.text = element_text(size=9),
+      legend.title = element_blank())
+
+dev.off()
+## ⚠️⚠️ ------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 
 ## Welche Städte / Kreise sind die Ausreißer?
 df2_west <- df2 %>%
@@ -574,6 +604,8 @@ library(patchwork)
 (b4 + b5 + b6) /
 (b7 + b8 + b9)
 
+## ⚠️⚠️ IM BERICHT -------------------------------------------------------------
+##------------------------------------------------------------------------------
 histogramkde <- function(variab, variabname) {
   ggplot(df2, aes(x = {{ variab }})) +
     geom_histogram(alpha = 0.4, aes(y = after_stat(density), fill = Region)) +
@@ -588,14 +620,39 @@ histogramkde <- function(variab, variabname) {
     scale_color_manual(values = c("West" = "#00507d", "Ost" = "#954200")) +
     theme_minimal() + 
     theme(
-      text = element_text(size=20),
-      legend.text = element_text(size=16),
+      text = element_text(size=9),
+      legend.text = element_text(size=9),
+      legend.title = element_text(size=10, margin = margin(r = 15)),
       strip.placement = "outside",
       strip.background = element_blank(),
+      strip.text = element_blank(),
       panel.grid = element_blank(),
-      legend.position = "none"
+      axis.title.y = element_text(margin = margin(r = 8)),
+      axis.title.x = element_text(margin = margin(t = 8)),
+      axis.line.y = element_line(color = "black"),
+      axis.ticks.y = element_line(color = "black"),
+      axis.line.x = element_line(color = "black"),
+      axis.ticks.x = element_line(color = "black")
     )
 }
+
+## Histogramme mit KDE
+tikz("kdehist.tex", width=5.7, height=4)
+nv1 <- histogramkde(Abitur_Quote, "Abiturquote (\\%)")
+nv2 <- histogramkde(OhneAbschl_Quote, "Ohne-Abschluss-Quote (\\%)")
+nv3 <- histogramkde(Erwerbstaetig_Quote, "Erwerbstätigenquote (\\%)")
+nv4 <- histogramkde(Erwerbslos_Quote, "Erwerbslosenquote (\\%)")
+
+library(patchwork)
+(nv4 + nv2) /
+  (nv3 + nv1) +
+  plot_layout(guides = "collect") &
+  theme(legend.position = "top",
+        legend.text = element_text(size=9),
+        legend.title = element_blank())
+dev.off()
+## ⚠️⚠️-------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 
 p1 <- histogramkde(Bev_Tausend, "Bevölkerungszahl (in Tausend)")
 p2 <- histogramkde(Abitur_Quote, "Abiturquote (%)")
@@ -621,12 +678,30 @@ ggpairs(
   aes(color = Region, alpha = 0.6)
 )
 
+## ⚠️⚠️ IM BERICHT -------------------------------------------------------------
+##------------------------------------------------------------------------------
+tikz("kdescattercorr.tex", width=5.7, height=5)
 ggpairs(
   df2,
   columns = c("OhneAbschl_Quote", "Abitur_Quote", "Erwerbstaetig_Quote", "Erwerbslos_Quote"),
-  columnLabels = c("Ohne-Abschluss-Quote (%)", "Abiturquote (%)", "Erwerbstätigkeitsquote (%)", "Erwerbslosigkeitsquote (%)"),
-  aes(color = Region, alpha = 0.6)
-)
+  columnLabels = c("OA-Quote (\\%)", "A-Quote (\\%)", "ET-Quote (\\%)", "EL-Quote (\\%)"),
+  aes(color = Region),
+  diag = list(continuous = "blankDiag"),
+  upper = list(continuous = wrap("cor", size = 3, colour = "black")),
+  lower = list(continuous = wrap("points", size = 0.9, alpha = 0.65)),
+  legend = c(2,1)
+) + 
+  scale_color_manual(values = c("West" = "#0072B2", "Ost"  = "#D55E00")) +
+  theme(
+    text = element_text(size = 10),
+    legend.position = "top",
+    legend.text = element_text(size=9),
+    legend.title = element_blank()
+  )
+
+dev.off()
+## ⚠️⚠️-------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 
 ## Erste mögliche Zusamenhänge:
 ## I.
@@ -787,57 +862,78 @@ summary(model2)
 ## ⚠️ In Ostdeutschland ist der Zusammenhang zwischen niedriger Bildung und 
 ## Arbeitslosigkeit deutlich stärker ausgebildet als in Westdeutschland
 
+## ⚠️⚠️ IM BERICHT -------------------------------------------------------------
+##------------------------------------------------------------------------------
 ## Scatterplots
 ## Ohne-Abschluss-Quote -> Erwerbslosenquote
+tikz("spOAEQ.tex", width=5.7, height=3.5)
 ggplot(df2, aes(x = OhneAbschl_Quote, y = Erwerbslos_Quote, color = Region)) +
-  geom_point() +
+  geom_point(alpha = 0.9) +
   geom_smooth(method = lm, se = TRUE, alpha = 0.15) +
   labs(
-    x = "Ohne-Abschluss-Quote (%)",
-    y = "Erwerbslosenquote (%)",
+    x = "Ohne-Abschluss-Quote (\\%)",
+    y = "Erwerbslosenquote (\\%)",
     color = "Region"
   ) +
-  scale_color_manual(values = c("West" = "#0072B2", "Ost" = "#D55E00"),
-                     labels = c("Westdeutschland", "Ostdeutschland")) +
+  scale_color_manual(values = c("West" = "#0072B2", "Ost" = "#D55E00")) +
   theme_minimal() +
   theme(
-    text = element_text(size=16),
-    legend.text = element_text(size=14)
+    text = element_text(size=9),
+    legend.text = element_text(size=8),
+    legend.title = element_blank(),
+    legend.position = "top",
+    axis.title.y = element_text(margin = margin(r = 8)),
+    axis.title.x = element_text(margin = margin(t = 8))
   )
+dev.off()
+## ⚠️⚠️-------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 
 ## Erwerbstätigkeitsquote -> Erwerbslosenquote
 ggplot(df2, aes(x = Erwerbstaetig_Quote, y = Erwerbslos_Quote, color = Region)) +
-  geom_point() +
+  geom_point(alpha = 0.6) +
   geom_smooth(method = lm, se = TRUE) +
   labs(
     x = "Erwerbstätigkeitsquote (%)",
     y = "Erwerbslosenquote (%)",
     color = "Region"
   ) +
-  scale_color_manual(values = c("West" = "#0072B2", "Ost" = "#D55E00"),
-                     labels = c("Westdeutschland", "Ostdeutschland")) +
+  scale_color_manual(values = c("West" = "#0072B2", "Ost" = "#D55E00")) +
   theme_minimal()
 
 ## Abiturquote -> Erwerbslosenquote 
 ggplot(df2, aes(x = Abitur_Quote, y = Erwerbslos_Quote, color = Region)) +
-  geom_point() +
+  geom_point(alpha = 0.6) +
   geom_smooth(method = lm, se = TRUE) +
   labs(
     x = "Abiturquote (%)",
     y = "Erwerbslosenquote (%)",
     color = "Region"
   ) +
-  scale_color_manual(values = c("West" = "#0072B2", "Ost" = "#D55E00"),
-                     labels = c("Westdeutschland", "Ostdeutschland")) +
+  scale_color_manual(values = c("West" = "#0072B2", "Ost" = "#D55E00")) +
   theme_minimal()
 
 ## 8. Vergleich Ost- und Westdeutschland
-
 ## Vergleich anhand deskriptiver Maßzahlen
 ## Median
 aggregate(cbind(Bev_Tausend, Abitur_Quote, OhneAbschl_Quote, Abitur_GenderGap, 
                 Erwerbstaetig_Quote, Erwerbslos_Quote, Nichterwerb_Quote, 
                 Erwerbstaetig_GenderGap, Erwerbslos_GenderGap) ~ Region, 
+          data = df2, 
+          FUN = median, na.rm = TRUE)
+
+## MAD (Median Absolute Deviation)
+aggregate(cbind(Bev_Tausend, Abitur_Quote, OhneAbschl_Quote, Abitur_GenderGap, 
+                Erwerbstaetig_Quote, Erwerbslos_Quote, Nichterwerb_Quote, 
+                Erwerbstaetig_GenderGap, Erwerbslos_GenderGap) ~ Region, 
+          data = df2, 
+          FUN = mad, na.rm = TRUE)
+
+## ⚠️⚠️ IM BERICHT -------------------------------------------------------------
+##------------------------------------------------------------------------------
+## Median
+aggregate(cbind(Erwerbslos_Quote, OhneAbschl_Quote, 
+                Erwerbstaetig_Quote, Abitur_Quote) ~ Region, 
           data = df2, 
           FUN = median, na.rm = TRUE)
 ## Ostdeutschland ist Westdeutschland in Bezug auf die Abiturquote, 
@@ -849,9 +945,8 @@ aggregate(cbind(Bev_Tausend, Abitur_Quote, OhneAbschl_Quote, Abitur_GenderGap,
 ## Ost- und Westdeutschland ähnlich sind.
 
 ## MAD (Median Absolute Deviation)
-aggregate(cbind(Bev_Tausend, Abitur_Quote, OhneAbschl_Quote, Abitur_GenderGap, 
-                Erwerbstaetig_Quote, Erwerbslos_Quote, Nichterwerb_Quote, 
-                Erwerbstaetig_GenderGap, Erwerbslos_GenderGap) ~ Region, 
+aggregate(cbind(Erwerbslos_Quote, OhneAbschl_Quote, 
+                Erwerbstaetig_Quote, Abitur_Quote) ~ Region, 
           data = df2, 
           FUN = mad, na.rm = TRUE)
 ## Ostdeutschland hat kleinere Streuungen bezüglich der Abiturquote, 
@@ -861,6 +956,8 @@ aggregate(cbind(Bev_Tausend, Abitur_Quote, OhneAbschl_Quote, Abitur_GenderGap,
 ## Jedoch ist die Streuung der Erwerbslosenquote nahezu identisch, was
 ## darauf hindeutet, dass die Arbeitslosigkeit innerhalb der Regionen 
 ## vergleichbar ist.
+## ⚠️⚠️-------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 
 ## Standardabweichung
 aggregate(cbind(Bev_Tausend, Abitur_Quote, OhneAbschl_Quote, Abitur_GenderGap, 
@@ -868,10 +965,17 @@ aggregate(cbind(Bev_Tausend, Abitur_Quote, OhneAbschl_Quote, Abitur_GenderGap,
                 Erwerbstaetig_GenderGap, Erwerbslos_GenderGap) ~ Region, 
           data = df2, 
           FUN = sd, na.rm = TRUE)
+
+aggregate(cbind(Erwerbslos_Quote, OhneAbschl_Quote, 
+                Erwerbstaetig_Quote, Abitur_Quote) ~ Region, 
+          data = df2, 
+          FUN = sd, na.rm = TRUE)
 ## Die Streuungen sind mit MAD vergleichbar, oft liegen die Streuungen in 
 ## Westdeutschland über denen in Ostdeutschland, die Streuung der 
 ## Erwerbslosenquote ist auch hier ähnlich. 
 
+## ⚠️⚠️ IM BERICHT -------------------------------------------------------------
+##------------------------------------------------------------------------------
 ## Tests auf Gleichheit von Regionen
 ## Jetzt sollen die Befunde statistisch genauer untersucht werden, um die
 ## Hypothese zu prüfen, ob sich die Erwerbslosenquote zwischen den
@@ -879,11 +983,6 @@ aggregate(cbind(Bev_Tausend, Abitur_Quote, OhneAbschl_Quote, Abitur_GenderGap,
 ## Variablen wie der Abiturquote, Ohne-Abschluss-Quote und Erwerbstätigkeitsquote
 ## aussieht. 
 
-## Prüfen der Normalverteilungsannahme
-histogramkde(Abitur_Quote, "Abiturquote (%)")
-histogramkde(OhneAbschl_Quote, "Ohne-Abschluss-Quote (%)")
-histogramkde(Erwerbstaetig_Quote, "Erwerbstätig (%)")
-histogramkde(Erwerbslos_Quote, "Erwerbslos (%)")
 ## Aufgrund von Ausreißern (=> Verteilungsschiefe) kann keine NV-Annahme
 ## getroffen werden. Nachfolgend wird mit dem Wilcoxon Rangsummen Test gearbeitet,
 ## da dieser Test nichtparametrisch ist. Der t-Test wird lediglich dazu
@@ -928,7 +1027,13 @@ t.test(Erwerbslos_Quote ~ Region, data = df2) ## p > 0.05
 ## Obwohl sich Ost- und Westdeutschland signifikant in Bildungsniveau und 
 ## Erwerbstätigkeit unterscheiden, zeigt sich kein signifikanter Unterschied in 
 ## der Erwerbslosigkeitsquote.
+## ⚠️⚠️-------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 
 ## 9. Berichtlegung
-
+citation("dplyr")
+citation("ggplot2")
+citation("patchwork")
+citation("GGally")
+citation("tikzDevice")
 
