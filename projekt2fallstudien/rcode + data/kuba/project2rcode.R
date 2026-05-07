@@ -429,19 +429,7 @@ ggplot(df_weather, aes(x = winter_djf)) +
   theme_minimal() +
   facet_wrap(~station)
 
-ggplot(df_weather, aes(x = spring_mam)) +
-  geom_histogram(aes(y = after_stat(density)), bins = 25) +
-  geom_density() +
-  theme_minimal() +
-  facet_wrap(~station)
-
 ggplot(df_weather, aes(x = summer_jja)) +
-  geom_histogram(aes(y = after_stat(density)), bins = 25) +
-  geom_density() +
-  theme_minimal() +
-  facet_wrap(~station)
-
-ggplot(df_weather, aes(x = autumn_son)) +
   geom_histogram(aes(y = after_stat(density)), bins = 25) +
   geom_density() +
   theme_minimal() +
@@ -462,19 +450,7 @@ ggplot(df_weather, aes(sample = winter_djf)) +
   theme_minimal() +
   facet_wrap(~station)
 
-ggplot(df_weather, aes(sample = spring_mam)) +
-  stat_qq() +
-  stat_qq_line() +
-  theme_minimal() +
-  facet_wrap(~station)
-
 ggplot(df_weather, aes(sample = summer_jja)) +
-  stat_qq() +
-  stat_qq_line() +
-  theme_minimal() +
-  facet_wrap(~station)
-
-ggplot(df_weather, aes(sample = autumn_son)) +
   stat_qq() +
   stat_qq_line() +
   theme_minimal() +
