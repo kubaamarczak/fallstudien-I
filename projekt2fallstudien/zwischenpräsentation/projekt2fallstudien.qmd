@@ -1,0 +1,229 @@
+---
+title: "Projekt II: Analyse der zeitlichen und räumlichen Klimaunterschiede in NRW"
+title-short: "Klimaunterschiede NRW"
+author: "Jakub Marczak, Ganeisraaj Kathiravan"
+author-short: "J. Marczak, G. Kathiravan"
+date: "18. Mai 2026"
+lang: de
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    chalkboard: true
+    preview-links: auto
+    code-fold: false
+    code-line-numbers: false
+    highlight-style: github
+    width: 1600
+    height: 900
+execute:
+  echo: true
+  warning: false
+  message: false
+filters:
+  - _extensions/r-wasm/live/live.lua
+bibliography: /Users/jakubmarczak/Downloads/literatur.bib
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+library(ggplot2)
+library(sf)
+# Weitere Pakete nach Bedarf:
+# library(geodata)
+# library(osmdata)
+# library(ggrepel)
+```
+
+## Inhalt
+
+1. Datensatz
+2. Datenaufbereitung
+3. Zentrale Ergebnisse
+   - Zeitliche Analyse
+   - Räumliche Analyse
+   - Adiabatischer Effekt
+4. Zusammenfassung
+
+## Datensatz
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- 6 Stationen in Städten an der Ruhr
+- Variablen
+  - Jahr
+  - Mitteltemperatur [°C]
+    - jährlich
+    - halbjährlich: Sommer, Winter
+    - saisonal: Frühling, Sommer, Herbst, Winter
+    - monatlich
+
+:::
+
+::: {.column width="50%"}
+
+![](graphiken/map.pdf){width="90%"}
+
+:::
+
+::::
+
+## Datenaufbereitung
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Fehlende Werte, z. B. `-999999`, wurden durch `NA` ersetzt
+- Temperaturen liegen im physikalisch plausiblen Bereich für NRW
+- Es gibt wenige und keine stark abweichenden Ausreißer
+- Ausreißer wurden bewusst nicht pauschal entfernt
+
+:::
+
+::: {.column width="50%"}
+
+![](graphiken/map.pdf){width="100%"}
+
+:::
+
+::::
+
+# Zentrale Ergebnisse
+
+## Zeitliche Analyse
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Gewählte Station: Essen
+  - 1950--1980
+  - 1990--2020
+- Gewählter Test: Welch-t-Test
+  - $H_0: \mu_1 \geq \mu_2$
+  - $H_1: \mu_1 < \mu_2$
+  - $\mu_1$: mittlere Temperatur im ersten Zeitraum
+  - $\mu_2$: mittlere Temperatur im zweiten Zeitraum
+- Vorangegangener F-Test
+
+:::
+
+::: {.column width="50%"}
+
+![](graphiken/essenjmt.pdf){width="80%"}
+
+:::
+
+::::
+
+## Räumliche Analyse
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Gruppenvergleich mittels ANOVA- und Tukey-Test
+  - Normalitätsannahme annähernd erfüllt
+
+:::
+
+::: {.column width="50%"}
+
+```{webr}
+# Beispiel-Platzhalter:
+# ggplot(df_compare, aes(x = station, y = annual)) +
+#   geom_boxplot() +
+#   theme_minimal()
+```
+
+:::
+
+::::
+
+## ANOVA-Test
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Prüfung räumlicher Mittelwertunterschiede zwischen Stationen
+- Modellidee:
+
+$$
+\text{annual} \sim \text{station}
+$$
+
+:::
+
+::: {.column width="50%"}
+
+```{webr}
+station <- factor(rep(c("A", "B", "C"), each = 10))
+annual <- c(rnorm(10, 10), rnorm(10, 11), rnorm(10, 8))
+summary(aov(annual ~ station))
+```
+
+
+:::
+
+::::
+
+## Tukey-Test
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Post-hoc-Test nach signifikanter ANOVA
+- Paarweise Vergleiche mit Korrektur für multiples Testen
+- `diff` entspricht der geschätzten Mittelwertdifferenz
+
+:::
+
+::: {.column width="50%"}
+
+```{webr}
+ TukeyHSD(model_station)
+```
+
+:::
+
+::::
+
+## Adiabatischer Effekt
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{webr}
+model_elev <- lm(annual ~ elevation, data = df_compare_elev)
+model_elev_stat <- lm(annual ~ elevation + station, data = df_compare_elev)
+anova(model_elev, model_elev_stat)
+```
+
+:::
+
+::: {.column width="50%"}
+
+- Adiabatischer Effekt erklärt räumliche Klimaunterschiede wesentlich
+- Regressionsmodelle
+  - Modell 1: `annual ~ elevation`
+  - Modell 2: `annual ~ elevation + station`
+- ANOVA-Test zum Vergleich beider Modelle
+- Modell 2 erklärt mehr Varianz als Modell 1
+
+:::
+
+::::
+
+## Zusammenfassung
+
+- Zeitliche Veränderungen wurden anhand disjunkter Zeiträume untersucht
+- Räumliche Unterschiede wurden mit Gruppenvergleichen analysiert
+- Die Höhenlage wurde über ein lineares Modell einbezogen
+- Weitere standortspezifische Faktoren können zusätzlich relevant sein

@@ -249,6 +249,8 @@ library("patchwork")
 (b1 + b2)
 (b3 + b4)
 
+(b1 + b3)
+
 (c1 + c2 + c3)
 (c4 + c5 + c6) 
 (c7 + c8 + c9) 
@@ -390,12 +392,60 @@ ggplot(df_weather, aes(x = year, y = annual)) +
   ) +
   theme_minimal() +
   theme(
-    text = element_text(size=9),
-    legend.text = element_text(size=8),
-    legend.title = element_text(size=10),
-    axis.text = element_text(size=7),
+    text = element_text(size=16),
+    legend.text = element_text(size=14),
+    legend.title = element_text(size=16),
+    axis.text = element_text(size=12),
     panel.grid = element_blank(),
-    axis.text.x = element_text(size=8),
+    axis.text.x = element_text(size=12),
+    axis.text.y = element_text(size=12),
+    axis.ticks.x = element_line(color = "black"),
+    axis.line.y = element_line(color = "black"),
+    axis.ticks.y = element_line(color = "black"),
+    axis.line.x = element_line(color = "black"),
+    axis.title.y = element_text(margin = margin(r = 8))
+  )
+
+## Zeitreihe Jahresmitteltemperatur (Nur Essen)
+
+mean_essen_50_80 <- df_weather %>%
+  filter(
+    station == "essen",
+    between(year, 1950, 1980)
+  ) %>%
+  pull(annual) %>%
+  mean(na.rm = TRUE)
+
+mean_essen_50_80
+
+mean_essen_90_20 <- df_weather %>%
+  filter(
+    station == "essen",
+    between(year, 1990, 2020)
+  ) %>%
+  pull(annual) %>%
+  mean(na.rm = TRUE)
+
+mean_essen_90_20
+  
+df_weather %>%
+  filter(station == "essen") %>%
+  ggplot(aes(x = year, y = annual)) +
+  geom_line(color = "#4C78A8", alpha = 0.8) +
+  geom_segment(x = 1950, xend = 1980, y = mean_essen_50_80, yend = mean_essen_50_80,
+               linewidth = 0.7) +
+  geom_segment(x = 1990, xend = 2020, y = mean_essen_90_20, yend = mean_essen_90_20,
+               linewidth = 0.7) +
+  labs(
+    x = "Jahr",
+    y = "Jahresmitteltemperatur Essen [°C]"
+  ) +
+  theme_minimal() +
+  theme(
+    text = element_text(size=17),
+    axis.text = element_text(size=11),
+    panel.grid = element_blank(),
+    axis.text.x = element_text(size=11),
     axis.ticks.x = element_line(color = "black"),
     axis.line.y = element_line(color = "black"),
     axis.ticks.y = element_line(color = "black"),
@@ -767,7 +817,7 @@ station_data <- data.frame(
   lat = c(51.43, 51.45, 51.51, 51.40, 51.39, 51.18),
   annual_mean = c(11.21, 10.32, 10.20, 9.20, 8.09, 5.58), ## 1997
   elevation = c(31, 150, 120, 218, 472, 839),
-  change = c("0.019 °C", "0.024 °C", "0.028 °C", "0.000 °C", "0.022 °C", "0.012 °C")
+  change = c("+ 0.019 °C pro Jahr", "+ 0.024 °C pro Jahr", "+ 0.028 °C pro Jahr", "+ 0.000 °C pro Jahr", "+ 0.022 °C pro Jahr", "+ 0.012 °C pro Jahr")
 )
 
 ## Als sf
@@ -833,20 +883,80 @@ ggplot() +
   geom_sf(data = ruhr, color = "#5DA5DA", linewidth = 1) +
   geom_sf(data = station_data_sf, 
           aes(color = annual_mean, size = elevation)) +
-  geom_sf_text(
+  geom_text_repel(
     data = station_data_sf,
-    aes(label = station),
-    nudge_y = 0.08
-  ) +
-  geom_sf_text(
+    aes(x = st_coordinates(station_data_sf)[,1], 
+        y = st_coordinates(station_data_sf)[,2], 
+        label = station),
+    size = 5,
+    point.padding = 0.3,
+    box.padding = 0.5,
+    nudge_y = 0.1,
+    direction = "y",
+    min.segment.length = 0
+  ) + 
+  geom_text_repel(
     data = station_data_sf,
-    aes(label = change),
-    nudge_y = 0.12,
-    size = 3.2
-  ) +
+    aes(x = st_coordinates(station_data_sf)[,1], 
+        y = st_coordinates(station_data_sf)[,2], 
+        label = change),
+    size = 3,
+    nudge_y = -0.07,
+    nudge_x = 0.06,
+    point.padding = 0.3,
+    box.padding = 0.5,
+    direction = "x",
+    min.segment.length = 0
+  ) + 
   coord_sf(xlim = c(5.8, 9.4), ylim = c(50.3, 52.5)) +
   scale_size_area(max_size = 12) +
   scale_color_viridis_c() +
+  labs(
+    color = "Jahresmitteltemperatur [°C]",
+    size = "Höhe [m ü. NHN]"
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    legend.title = element_text(size=15),
+    legend.text = element_text(size=13)
+  )
+
+
+## -----------------------------------------------------------------------------
+
+## 9. Berichtlegung
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+library(ggrepel)
+
+ggplot() +
+  geom_sf(data = nrw, fill = "grey95", color = "grey60") +
+  geom_sf(data = ruhr, color = "#5DA5DA", linewidth = 1) +
+  geom_sf(data = station_data_sf) +
+  geom_text_repel(
+    data = station_data_sf,
+    aes(x = st_coordinates(station_data_sf)[,1], 
+        y = st_coordinates(station_data_sf)[,2], 
+        label = station),
+    size = 5.5
+  ) + 
+  coord_sf(xlim = c(5.8, 9.4), ylim = c(50.3, 52.5)) +
   labs(
     color = "Jahresmitteltemperatur [°C]",
     size = "Höhe [m ü. NHN]"
@@ -859,9 +969,7 @@ ggplot() +
   )
 
 
-## -----------------------------------------------------------------------------
 
-## 9. Berichtlegung
 
 
 
