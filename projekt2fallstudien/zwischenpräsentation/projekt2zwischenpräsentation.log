@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.12)  16 MAY 2026 19:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.12)  17 MAY 2026 12:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1123,6 +1123,36 @@ File: listings.cfg 2024/02/21 1.10 listings configuration
 ))
 Package: listings 2024/02/21 1.10 (Carsten Heinz)
 
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryspy.code.tex
+File: tikzlibraryspy.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\tikz@lib@spybox=\box86
+)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/tikzmark/tikzlibrarytikzmark.code
+.tex
+File: tikzlibrarytikzmark.code.tex 2022/08/24 v1.15 TikZ library for marking po
+sitions in a document
+
+(/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2024-02-18 LaTeX2e option processing using LaTeX3 keys
+)
+\l__sn_x_dim=\dimen319
+\l__sn_y_dim=\dimen320
+\l__sn_xa_dim=\dimen321
+\l__sn_ya_dim=\dimen322
+)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen323
+\pgfarrowlength=\dimen324
+\pgfarrowwidth=\dimen325
+\pgfarrowlinewidth=\dimen326
+)
 (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/02/21 1.10 listings language file
 )
@@ -1137,31 +1167,27 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
 
-(./projekt2zwischenpräsentation.aux
-
-LaTeX Warning: Label `fig:map' multiply defined.
-
-)
+(./projekt2zwischenpräsentation.aux)
 \openout1 = `projekt2zwischenpräsentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1200,13 +1226,13 @@ LaTeX Font Info:    ... okay on input line 64.
 (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count489
-\scratchdimen=\dimen319
-\scratchbox=\box86
+\scratchdimen=\dimen327
+\scratchbox=\box87
 \nofMPsegments=\count490
 \nofMParguments=\count491
 \everyMPshowfont=\toks53
 \MPscratchCnt=\count492
-\MPscratchDim=\dimen320
+\MPscratchDim=\dimen328
 \MPnumerator=\count493
 \makeMPintoPDFobject=\count494
 \everyMPtoPDFconversion=\toks54
@@ -1219,69 +1245,69 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 64.
+Package hyperref Info: Link coloring OFF on input line 66.
 
 (./projekt2zwischenpräsentation.out) (./projekt2zwischenpräsentation.out)
 \@outlinefile=\write6
 \openout6 = `projekt2zwischenpräsentation.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 64.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 66.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 64.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 66.
 \symnumbers=\mathgroup7
 \sympureletters=\mathgroup8
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 64.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 64.
+(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 66.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 66.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 64.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 66.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 64.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 64.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 66.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 66.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 64.
+(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 66.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 64.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 64.
+(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 66.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 66.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 64.
+(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 66.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 64.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 64.
+(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 66.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 66.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 64.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 66.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 64.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 66.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 64.
+(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 66.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 64.
+(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 66.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> T1/cmr/b/n on input line 64.
+(Font)                  OT1/cmss/b/n --> T1/cmr/b/n on input line 66.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/cmss/b/n --> T1/cmss/b/n on input line 64.
+(Font)                  T1/cmss/b/n --> T1/cmss/b/n on input line 66.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 64.
+(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 66.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 64.
+(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 66.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 64.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 64.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 66.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 66.
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `normal' on input line 64
+(Font)              `pureletters' in the math version `normal' on input line 66
 .
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 64
+(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 66
 .
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `bold' on input line 64.
+(Font)              `pureletters' in the math version `bold' on input line 66.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 64
+(Font)                  T1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 66
 .
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 64.
+ut line 66.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/translator/translator-basic-dicti
 onary-English.dict
@@ -1334,33 +1360,13 @@ Package biblatex Info: ... file 'projekt2zwischenpräsentation.bbl' not found.
 
 
 No file projekt2zwischenpräsentation.bbl.
-Package biblatex Info: Reference section=0 on input line 64.
-Package biblatex Info: Reference segment=0 on input line 64.
+Package biblatex Info: Reference section=0 on input line 66.
+Package biblatex Info: Reference segment=0 on input line 66.
 \c@lstlisting=\count495
-(./projekt2zwischenpräsentation.nav)
-Overfull \hbox (24.14642pt too wide) in paragraph at lines 64--64
- [][][][]  
- []
-
-
-Overfull \hbox (24.14642pt too wide) in paragraph at lines 68--68
- [][][][]  
- []
-
-[1
+(./projekt2zwischenpräsentation.nav) [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-Overfull \hbox (24.14642pt too wide) in paragraph at lines 84--84
- [][][][]  
- []
-
-
-Overfull \hbox (24.14642pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-
 Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
@@ -1368,18 +1374,9 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [2
 
 ]
-Overfull \hbox (24.14642pt too wide) in paragraph at lines 87--87
- [][][][]  
- []
-
 \openout4 = `projekt2zwischenpräsentation.vrb'.
 
-
-Overfull \hbox (24.14642pt too wide) in paragraph at lines 113--113
- [][][][]  
- []
-
-(./projekt2zwischenpräsentation.vrb
+ (./projekt2zwischenpräsentation.vrb
 LaTeX Font Info:    Trying to load font information for U+msa on input line 9.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1409,11 +1406,6 @@ File: graphiken/map.pdf Graphic file (type pdf)
 Package pdftex.def Info: graphiken/map.pdf  used on input line 23.
 (pdftex.def)             Requested size: 195.8607pt x 195.85721pt.
 )
-Overfull \hbox (24.14642pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-
 Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
@@ -1421,74 +1413,42 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [3
 
  <./graphiken/map.pdf>]
-Overfull \hbox (24.14642pt too wide) in paragraph at lines 115--115
- [][][][]  
- []
-
 \openout4 = `projekt2zwischenpräsentation.vrb'.
 
+ (./projekt2zwischenpräsentation.vrb
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 7
+.
 
-Overfull \hbox (24.14642pt too wide) in paragraph at lines 135--135
- [][][][]  
- []
-
-(./projekt2zwischenpräsentation.vrb
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
 <graphiken/boxplot_outlier_annual_seasonal.pdf, id=72, 437.635pt x 332.24126pt>
 
 File: graphiken/boxplot_outlier_annual_seasonal.pdf Graphic file (type pdf)
 <use graphiken/boxplot_outlier_annual_seasonal.pdf>
 Package pdftex.def Info: graphiken/boxplot_outlier_annual_seasonal.pdf  used on
  input line 17.
-(pdftex.def)             Requested size: 217.62448pt x 165.21782pt.
-
-pdfTeX warning (ext4): destination with the same identifier (name{fig:map}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.18         \label{fig:map}
-                            )
-Overfull \hbox (24.14642pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-
+(pdftex.def)             Requested size: 206.74258pt x 156.95439pt.
+)
 Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
 
 [4
 
- <./graphiken/boxplot_outlier_annual_seasonal.pdf>]
-Overfull \hbox (24.14642pt too wide) in paragraph at lines 143--143
- [][][][]  
- []
-
-[5
+ <./graphiken/boxplot_outlier_annual_seasonal.pdf>] [5
 
 ]
-Overfull \hbox (24.14642pt too wide) in paragraph at lines 146--146
- [][][][]  
- []
-
 \openout4 = `projekt2zwischenpräsentation.vrb'.
 
 
-Overfull \hbox (24.14642pt too wide) in paragraph at lines 176--176
- [][][][]  
- []
-
 (./projekt2zwischenpräsentation.vrb
-<graphiken/essenjmt.pdf, id=93, 433.62pt x 408.52625pt>
+<graphiken/essenjmt.pdf, id=95, 433.62pt x 408.52625pt>
 File: graphiken/essenjmt.pdf Graphic file (type pdf)
 <use graphiken/essenjmt.pdf>
-Package pdftex.def Info: graphiken/essenjmt.pdf  used on input line 26.
+Package pdftex.def Info: graphiken/essenjmt.pdf  used on input line 30.
 (pdftex.def)             Requested size: 174.10023pt x 164.02472pt.
 )
-Overfull \hbox (24.14642pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-
 Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
@@ -1496,29 +1456,15 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [6
 
  <./graphiken/essenjmt.pdf>]
-Overfull \hbox (24.14642pt too wide) in paragraph at lines 179--179
- [][][][]  
- []
-
 \openout4 = `projekt2zwischenpräsentation.vrb'.
 
-
-Overfull \hbox (24.14642pt too wide) in paragraph at lines 225--225
- [][][][]  
- []
-
-(./projekt2zwischenpräsentation.vrb
-<graphiken/zeitreihe.pdf, id=113, 433.62pt x 289.08pt>
+ (./projekt2zwischenpräsentation.vrb
+<graphiken/zeitreihe.pdf, id=116, 433.62pt x 289.08pt>
 File: graphiken/zeitreihe.pdf Graphic file (type pdf)
 <use graphiken/zeitreihe.pdf>
 Package pdftex.def Info: graphiken/zeitreihe.pdf  used on input line 25.
 (pdftex.def)             Requested size: 235.03522pt x 156.69194pt.
 )
-Overfull \hbox (24.14642pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-
 Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
@@ -1526,11 +1472,6 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [7
 
  <./graphiken/zeitreihe.pdf>] (./projekt2zwischenpräsentation.vrb)
-Overfull \hbox (24.14642pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-
 Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
@@ -1538,11 +1479,6 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [8
 
 ] (./projekt2zwischenpräsentation.vrb)
-Overfull \hbox (24.14642pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-
 Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
@@ -1550,23 +1486,9 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [9
 
 ]
-Overfull \hbox (24.14642pt too wide) in paragraph at lines 228--228
- [][][][]  
- []
-
 \openout4 = `projekt2zwischenpräsentation.vrb'.
 
-
-Overfull \hbox (24.14642pt too wide) in paragraph at lines 270--270
- [][][][]  
- []
-
-(./projekt2zwischenpräsentation.vrb)
-Overfull \hbox (24.14642pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-
+ (./projekt2zwischenpräsentation.vrb)
 Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
@@ -1574,18 +1496,13 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [10
 
 ] (./projekt2zwischenpräsentation.vrb
-<graphiken/mapdet.pdf, id=151, 939.51pt x 542.025pt>
+<graphiken/mapdet.pdf, id=176, 939.51pt x 542.025pt>
 File: graphiken/mapdet.pdf Graphic file (type pdf)
 <use graphiken/mapdet.pdf>
-Package pdftex.def Info: graphiken/mapdet.pdf  used on input line 41.
+Package pdftex.def Info: graphiken/mapdet.pdf  used on input line 44.
 (pdftex.def)             Requested size: 304.67294pt x 175.7673pt.
 )
-Overfull \vbox (1.63376pt too high) detected at line 270
- []
-
-
-Overfull \hbox (24.14642pt too wide) has occurred while \output is active
- [][][][]  
+Overfull \vbox (1.63376pt too high) detected at line 282
  []
 
 
@@ -1596,23 +1513,9 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [11
 
  <./graphiken/mapdet.pdf>]
-Overfull \hbox (24.14642pt too wide) in paragraph at lines 273--273
- [][][][]  
- []
-
 \openout4 = `projekt2zwischenpräsentation.vrb'.
 
-
-Overfull \hbox (24.14642pt too wide) in paragraph at lines 277--277
- [][][][]  
- []
-
-(./projekt2zwischenpräsentation.vrb)
-Overfull \hbox (24.14642pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-
+ (./projekt2zwischenpräsentation.vrb)
 Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 [] 
  []
@@ -1634,10 +1537,6 @@ Overfull \hbox (8.53189pt too wide) has occurred while \output is active
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `projekt2zwischenpräsentation.out' has not 
 changed.
 (rerunfilecheck)             Checksum: 606BBD0D8140A05B5A78F0635B72EB55;141.
@@ -1647,28 +1546,36 @@ l'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35365 strings out of 474116
- 695084 string characters out of 5743682
- 1939187 words of memory out of 5000000
- 57047 multiletter control sequences out of 15000+600000
- 573029 words of font info for 77 fonts, out of 8000000 for 9000
+ 36983 strings out of 474116
+ 722588 string characters out of 5743682
+ 1941187 words of memory out of 5000000
+ 58637 multiletter control sequences out of 15000+600000
+ 576722 words of font info for 83 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  128i,15n,123p,703b,2369s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb>
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
-/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></u
-sr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr
-/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/l
-ocal/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/loc
-al/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss0700.pfb></usr/local
-/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/local/t
-exlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/tex
-live/2024/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texli
-ve/2024/texmf-dist/fonts/type1/public/cm-super/sfss2488.pfb>
-Output written on projekt2zwischenpräsentation.pdf (12 pages, 285882 bytes).
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><
+/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></
+usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></
+usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
+sr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr
+/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/l
+ocal/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/loc
+al/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local
+/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/local/t
+exlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/local/tex
+live/2024/texmf-dist/fonts/type1/public/cm-super/sfss0700.pfb></usr/local/texli
+ve/2024/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/local/texlive
+/2024/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2
+024/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/local/texlive/202
+4/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2024/
+texmf-dist/fonts/type1/public/cm-super/sfss2488.pfb></usr/local/texlive/2024/te
+xmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2024/texm
+f-dist/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on projekt2zwischenpräsentation.pdf (12 pages, 391796 bytes).
 PDF statistics:
- 229 PDF objects out of 1000 (max. 8388607)
- 150 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 500000)
- 124 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 286 PDF objects out of 1000 (max. 8388607)
+ 183 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
+ 172 words of extra memory for PDF output out of 10000 (max. 10000000)
 

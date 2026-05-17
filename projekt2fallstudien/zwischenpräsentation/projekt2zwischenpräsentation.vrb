@@ -1,4 +1,13 @@
 \frametitle{R Code Beispiel}
 \frametitle{Zusammenfassung}
-
+	\begin{itemize}
+	    \item Temperaturdaten zeigen zeitliche und räumliche Unterschiede
+	    \item Signifikanter Temperaturanstieg in Essen zwischen 1950 - 1980 und 1990 - 2020
+	    \item ANOVA zeigt hochsignifikante Unterschiede zwischen den Stationen
+	    \item Tukey-HSD-Test: fast alle Stationenpaare unterscheiden sich signifikant
+	    \item[$\rightarrow$] Ausnahme: Dortmund - Essen
+	    \item Höhenlage erklärt wesentliche räumliche Klimaunterschiede
+	    \item[$\rightarrow$] Temperaturgradient von ca. $-0.65\,^\circ\mathrm{C}/100\,\mathrm{m}$
+	    \item[$\Rightarrow$] Zusätzliche standortspezifische Faktoren bleiben relevant
+	\end{itemize}
 

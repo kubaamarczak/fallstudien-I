@@ -18,6 +18,8 @@
 \definecolor{progress}{HTML}{9b9bba}
 \usepackage{listings}
 \usepackage{xcolor}
+\usetikzlibrary{spy}
+\usetikzlibrary{tikzmark,positioning,arrows.meta}
 \date{18. Mai 2026}
 
 \lstset{
@@ -30,7 +32,7 @@
   breaklines=true
 }
 
-\title[Analyse der zeitlichen und räumlichen Klimaunterschiede in NRW]{Projekt \MakeUppercase{\romannumeral 2}: Analyse der zeitlichen und räumlichen Klimaunterschiede in NRW}
+\title[Analyse der Klimaunterschiede in NRW]{Projekt \MakeUppercase{\romannumeral 2}: Analyse der zeitlichen und räumlichen Klimaunterschiede in NRW}
 \author[J. Marczak, G. Kathiravan]{Jakub Marczak, Ganeisraaj Kathiravan}
 
 \setbeamertemplate{footline}{
@@ -63,6 +65,7 @@
 
 \begin{document}
 
+% Folie 1
 \begin{frame}[plain]
   \titlepage
 \end{frame}
@@ -112,13 +115,14 @@
         \end{columns}
 \end{frame}
 
+% Folie 4
 \begin{frame}[fragile]{R Code Beispiel}
     \frametitle{Datenaufbereitung}
 	\begin{columns}
 	
 	\column{0.5\textwidth}
         \begin{itemize}
-            \item -999999 mit NA ersetzt
+            \item \lstinline{-999999} mit \lstinline{NA} ersetzt
             \item Alle Temperaturen fallen in ein physikalisch plausibles Spektrum für NRW
             \item Es gibt nicht viele und keine stark abweichenden Ausreißer
             \item Bewusstes Ignorieren
@@ -128,13 +132,14 @@
         
     \begin{figure}
         \centering
-        \includegraphics[width=1\linewidth]{graphiken/boxplot_outlier_annual_seasonal.pdf}
-        \label{fig:map}
+        \includegraphics[width=0.95\linewidth]{graphiken/boxplot_outlier_annual_seasonal.pdf}
+        \caption{Boxplots der jährlichen und saisonalen Temperaturmittelwerte.}
+        \label{fig:boxplotsoutliers}
     \end{figure}
         \end{columns}
 \end{frame}
 
-
+% Folie 5
 \section{Zentrale Ergebnisse}
 
 \begin{frame}[plain]
@@ -142,7 +147,7 @@
   \Huge Zentrale Ergebnisse
 \end{frame}
 
-% Folie 4 
+% Folie 6
 \begin{frame}[fragile]{R Code Beispiel}
     \frametitle{Zeitliche Analyse}
     \begin{columns}
@@ -151,8 +156,8 @@
     \begin{itemize}
         \item Gewählte Station: Essen
         \begin{itemize}
-            \item[$\rightarrow$] 1950 - 1980
-            \item[$\rightarrow$] 1990 - 2020
+            \item[i.] 1950 - 1980
+            \item[ii.] 1990 - 2020
         \end{itemize}
         \item[$\rightarrow$] Gewählter Test: Welch t-Test
                 \begin{itemize}
@@ -161,7 +166,11 @@
             \item $\mu_1$: Mittlere Temp. erster Zeitraum
             \item $\mu_1$: Mittlere Temp. zweiter Zeitraum
         \end{itemize}
-        \item Vorangegangener F-Test
+        \vspace{-0.22cm}
+        \item[$\ast$] {\scriptsize Vorangegangener F-Test}
+        \item p-Wert = 3.451e-08 ***
+        \item[$\Rightarrow$] Hinweis auf Temperaturerhöhung
+        \item Mittelwertdifferenz $\approx$ 1.06 [$^\circ$C]
     \end{itemize}
 
     
@@ -175,7 +184,7 @@
     \end{columns}
 \end{frame}
 
-% Folie 5
+% Folie 7
 \begin{frame}[fragile]{R Code Beispiel}
     \frametitle{Räumliche Analyse}
     
@@ -184,7 +193,7 @@
     \column{0.4\textwidth}
         \begin{itemize}
            \item Zeitraum: 1950 - 1995
-           \item[$\rightarrow$] $\forall$ Stationen: Beobachtungen relativ vollständig
+           \item[$\forall$] Stationen: Beobachtungen relativ vollständig
         	   \item Gruppenvergleich mittels ANOVA- und Tukey-Test
 	   \begin{itemize}
         	       \item Normalitätsannahme annähernd erfüllt
@@ -205,9 +214,9 @@
      \only<2>{
         \frametitle{ANOVA-Test}
         \begin{itemize}
-           \item annual $\sim$ station
+           \item \texttt{annual $\sim$ station}
            \item[$\rightarrow$] p-Wert < 2.2e-16 ***
-        	   \item[$\rightarrow$] mindestens zwei Gruppen unterscheiden sich
+        	   \item[$\Rightarrow$] mindestens zwei Gruppen unterscheiden sich
         \end{itemize}
      }
      
@@ -216,47 +225,50 @@
         \begin{itemize}
            \item Welche Gruppen unterscheiden sich signifikant voneinander?
            \item[$\rightarrow$] Tukey-HSD-Test prüft einzelne Gruppenpaare
-        	   \item fast alle Gruppen p $\approx$ 0: hochsignifikanter Klimaunterschied
-	   \item Dortmund - Essen kein signifikanter Unterschied, \newline p = 0.99
+        	   \item[$\Rightarrow$] fast alle Gruppen p $\approx$ 0: hochsignifikanter Klimaunterschied
+	   \item[$\Rightarrow$] Dortmund - Essen kein signifikanter Unterschied, \newline p = 0.99
         \end{itemize}
      }
      
     \end{columns}
 \end{frame}
 
-% Folie 6
-\begin{frame}[fragile]{R Code Beispiel}
-    \frametitle{Adiabatischer Effekt}
+% Folie 8
+\begin{frame}[fragile]{Adiabatischer Effekt}
 
-     \only<1>{
-        \begin{columns}
-    
-        \column{0.5\textwidth}
-        
-        \begin{itemize}
-           \item annual $\sim$ elevation
-           \item[$\rightarrow$] p-Wert < 2.2e-16 ***
-        	   \item[$\rightarrow$] y = 10.78 - 0.0065x$_1$
-	   \item annual $\sim$ elevation + station
-           \item[$\rightarrow$] p-Wert < 2.2e-16 ***
-        	   \item[$\rightarrow$] y = 10.78 - 0.0071x$_1$
-        \end{itemize}
-        
-            \column{0.5\textwidth}
-        \begin{itemize}
-            \item Adiabatischer Effekt erklärt räumliche Klimaunterschiede wesentlich
-            \item Regressionsmodelle 
-                \begin{itemize}
-                    \item Modell 1: annual $\sim$ elevation
-                    \item Modell 2: annual $\sim$ elevation + station
-                \end{itemize} 
-            \item ANOVA-Test zum Vergleich beider Modelle
-            \item[$\rightarrow$] Modell 2 erklärt mehr Varianz als Modell 1
-        \end{itemize}
-        
-        \end{columns}
-     }
-     
+\only<1>{
+\begin{columns}
+
+\column{0.5\textwidth}
+
+\begin{block}{Regressionsmodelle}
+\begin{itemize}
+   \item Modell 1: \texttt{annual $\sim$ elevation}
+   \item[$\rightarrow$] p-Wert $< 2.2\mathrm{e}{-16}$ ***
+   \item[$\rightarrow$] $y = 10.78 - 0.0065x_1$
+   \item Modell 2: \texttt{annual $\sim$ elevation + station}
+   \item[$\rightarrow$] p-Wert $< 2.2\mathrm{e}{-16}$ ***
+   \item[$\rightarrow$] $y = 11.35 - 0.0071x_1 - 0.5525x_2 - 1.206x_3$
+   \item[$\ast$] $\beta_1$: Höhe, $\beta_2$: Dortmund, $\beta_3$: Arnsberg
+\end{itemize}
+\end{block}
+\vspace{-0.15cm}
+{\tiny
+$\ast$ Es wurden ausschließlich hochsignifikante Koeffizienten dargestellt.
+}
+
+\column{0.5\textwidth}
+
+\begin{itemize}
+    \item Adiabatischer Effekt erklärt räumliche Klimaunterschiede wesentlich
+    \item[$\rightarrow$] ziemlich genau $-0.65\,^\circ\mathrm{C}/100\,\mathrm{m}$
+    \item ANOVA-Test zum Vergleich beider Modelle
+    \item[$\rightarrow$] Modell 2 erklärt mehr Varianz als Modell 1
+\end{itemize}
+
+\end{columns}
+}
+
      \only<2>{
         \begin{figure}
             \centering
@@ -266,13 +278,22 @@
          \end{figure}
 
      }
-    
+     
 \end{frame}
 
-% Folie 7
+% Folie 9
 \begin{frame}[fragile]{R Code Beispiel}
     \frametitle{Zusammenfassung}
-
+	\begin{itemize}
+	    \item Temperaturdaten zeigen zeitliche und räumliche Unterschiede
+	    \item Signifikanter Temperaturanstieg in Essen zwischen 1950 - 1980 und 1990 - 2020
+	    \item ANOVA zeigt hochsignifikante Unterschiede zwischen den Stationen
+	    \item Tukey-HSD-Test: fast alle Stationenpaare unterscheiden sich signifikant
+	    \item[$\rightarrow$] Ausnahme: Dortmund - Essen
+	    \item Höhenlage erklärt wesentliche räumliche Klimaunterschiede 
+	    \item[$\rightarrow$] Temperaturgradient von ca. $-0.65\,^\circ\mathrm{C}/100\,\mathrm{m}$
+	    \item[$\Rightarrow$] Zusätzliche standortspezifische Faktoren bleiben relevant
+	\end{itemize}
 
 \end{frame}
 
